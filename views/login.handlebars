@@ -1,0 +1,78 @@
+<body>
+  <div id="background">
+    <form action="/menu" method="POST">
+
+      <div class="login_container">
+
+        <div class="ipnut_container">
+          <div class="input_title">
+            <label>Meno</label>
+          </div>
+          <div>
+            <input class="input_field" type="text" name="name">
+          </div>
+        </div>
+
+        <div class="ipnut_container">
+          <div class="input_title">
+            <label>Heslo</label>
+          </div>
+          <div>
+            <input class="input_field" type="password" name="password">
+          </div>
+        </div>
+
+        <div class="loginBtb_container">
+          <button class="action_button" type="submit">Prihlásiť</button>
+        </div>
+
+        <div class="errorText">
+          Zadali ste nesprávne meno alebo heslo.
+        </div>
+      </div>
+
+    </form>
+
+    <div id="footer-wrap">
+
+      <div id="footer">
+
+        <div id="left_text_container">
+          <label id="left_text"></label>
+        </div>
+
+        <div id="right_text_container">
+          <label id="right_text"></label>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+<script>
+  $(document).ready(function(){
+    $('.action_button').click(function(e){
+      e.preventDefault();
+      var data = {};
+      $('.input_field').each(function(){
+        var fieldName = $(this).attr('name'); 
+        var value = $(this).val();
+        data[fieldName] = value;
+      });
+      $.ajax({
+        type: 'POST',
+        url: '/login',
+        data: JSON.stringify(data),
+        contentType: 'application/json',
+        dataType: 'json',
+        success: function(data, status) {
+          window.location = '/menu';
+        }
+      })
+    })
+  })
+</script>
