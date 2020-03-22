@@ -9,14 +9,14 @@ const { HTTP_INVALID_COOKIE, HTTP_NOT_AUTHORIZED } = HTTP_CODES;
 function validateCookie(cookie, req) {
   try {
     const decryptedCookie = JSON.parse(decryptString(cookie));
-    console.log(decryptedCookie);
+    // console.log(decryptedCookie);
     if (decryptedCookie.name === 'Doktor') {
       req.user = decryptedCookie;
       return true;
     }
     return false;
   } catch (e) {
-    console.log(e);
+    // console.log(e);
     return false;
   }
 }
@@ -24,8 +24,8 @@ function validateCookie(cookie, req) {
 function middleware(req, res, next) {
   const cookie = req.cookies.auth;
 
-  console.error(req);
-  console.log(cookie);
+  // console.error(req);
+  // console.log(cookie);
   if (!cookie) {
     res.status(HTTP_INVALID_COOKIE);
     res.json({

@@ -1,7 +1,8 @@
 import express from 'express';
 import * as basic from './basic.js';
 import * as apiData from './apiData.js';
-import { login, handleLogin } from './login.js';
+import { login, handleLogin } from './auth.js';
+import { menu, newPatient, patientList } from './menu.js';
 
 const router = express.Router();
 
@@ -10,8 +11,9 @@ router.get('/ping', (req, res) => res.json({ message: 'pong' }));
 // Basic rendering ----------------------------
 router.get('/login', login);
 router.post('/login', handleLogin);
-router.get('/home', basic.home);
-router.get('/homeWithPartials', basic.homeWithPartials);
+router.get('/menu', menu);
+router.get('/registracia_pacienta', newPatient);
+router.get('/zoznam_pacientov', patientList);
 //---------------------------------------------
 
 // Rendering data from API --------------------

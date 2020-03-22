@@ -187,6 +187,13 @@ button[disabled]{
 /*****************************************************************************/
 /* NEW PATIENT PAGE STYLES */
 
+#registration_container {
+  padding-top: 30px;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
 .input_patient_info {
   background-color: #E1EBF2;
   border-radius: 5px;
