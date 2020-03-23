@@ -27,7 +27,7 @@ export function patientList(req, res) {
     const context = {
       pageTitle: 'Zoznam pacientov',
       noLogout: false,
-    }
+    };
     res.render(PATIENT_LIST_VIEW, context);
   }
 }
