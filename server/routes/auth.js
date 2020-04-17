@@ -6,8 +6,10 @@ export function login(req, res) {
   const context = {
     pageTitle: 'Prihlásenie',
     noLogout: true,
+    wrongLogin: 'none'
   };
   res.render(LOGIN_VIEW, context);
+  console.log(res.statusCode);
 }
 
 export function handleLogin(req, res) {

@@ -4,6 +4,7 @@ import { HTTP_CODES } from '../config/config.js';
 
 import { decryptString } from '../utils/crypto.js';
 
+const LOGIN_VIEW = 'login';
 const { HTTP_INVALID_COOKIE, HTTP_NOT_AUTHORIZED } = HTTP_CODES;
 
 function validateCookie(cookie, req) {
@@ -27,11 +28,17 @@ function middleware(req, res, next) {
   // console.error(req);
   // console.log(cookie);
   if (!cookie) {
-    res.status(HTTP_INVALID_COOKIE);
-    res.json({
-      status: HTTP_INVALID_COOKIE,
-      message: 'Invalid Cookie',
-    });
+    const context = {
+      pageTitle: 'Prihlásenie',
+      noLogout: true,
+      wrongLogin: 'none'
+    };
+    res.render(LOGIN_VIEW, context);
+    // res.status(HTTP_INVALID_COOKIE);
+    // res.json({
+    //   status: HTTP_INVALID_COOKIE,
+    //   message: 'Invalid Cookie',
+    // });
     return;
   }
 
