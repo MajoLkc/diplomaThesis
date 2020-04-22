@@ -7,25 +7,48 @@
 	<title>{{pageTitle}}</title>
 	<link rel="stylesheet" href="/static/css/pagesStyles.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<style>
+		#page-container {
+			position: relative;
+			min-height: 100vh;
+		}
+
+		#content-wrap {
+			padding-bottom: 80px;
+			/* Footer height */
+		}
+
+		footer {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 80px;
+			background-color: #3686BE;
+		}
+	</style>
 </head>
 
 <body>
-	<header id="header">
-		<div id="title_position">
-			<label id="title_text">Detské spánkové laboratórium</label>
+	<div id="page-container">
+		<div id="content-wrap">
+			<header>
+				<div id="title_position">
+					<a href="/menu" id="title_text">Detské spánkové laboratórium</a>
+				</div>
+				<div id="logout_btn_position">
+					<button class="action_button_2" id="logout_btn" {{#if noLogout}} style="display: none;" {{/if}}>Odhlásiť</button>
+				</div>
+			</header>
+			{{{body}}}
 		</div>
-		<div id="logout_btn_position">
-			<button class="action_button_2" id="logout_btn" {{#if noLogout}} style="display: none;" {{/if}}>Odhlásiť</button>
-		</div>
-	</header>
-	{{{body}}}
+		<footer id="footer"></footer>
+	</div>
 </body>
 
 </html>
 
 <script>
-$('#logout_btn').click(function(){
-  alert('klikol si');
-  
-})
+	$('#logout_btn').click(function () {
+		alert('klikol si');
+	})
 </script>
