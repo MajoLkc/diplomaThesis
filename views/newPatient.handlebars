@@ -1,58 +1,120 @@
 <div id="registration_container">
-  <form method="post">
+  <form action="/vyber_dotaznika" method="post" id="patientForm">
+    <div class="form-control">
+      <label>Meno:</label>
+      <input type="text" id="name">
+      <p>Nezadali ste meno pacienta.</p>
+    </div>
+
+    <div class="form-control">
+      <label>Priezvisko:</label>
+      <input type="text" id="surname">
+      <p>Nezadali ste priezvisko pacienta.</p>
+    </div>
+
+    <div class="form-control">
+      <label>Dátum narodenia:</label>
+      <input type="date" id="birthDate">
+      <p>Nezadali ste dátum narodenia pacienta.</p>
+    </div>
+
+    <div class="form-control">
+      <label>Výška:</label>
+      <input type="number" id="height">
+      <p>Nezadali ste výšku pacienta.</p>
+    </div>
+
+    <div class="form-control">
+      <label>Váha:</label>
+      <input type="number" id="weight">
+      <p>Nezadali ste váhu pacienta.</p>
+    </div>
+
+    <div class="form-control">
+      <label>Obvod krku:</label>
+      <input type="number" id="neckCircuit">
+      <p>Nezadali ste obvod krku pacienta.</p>
+    </div>
+
     <div>
-      <div>
-        <label>Meno:</label>
-        <input class="input_patient_info" type="text">
-        <div class="errorText">
-          Nezadali ste meno pacienta.
-        </div>
-      </div>
-
-      <div>
-        <label>Priezvisko:</label>
-        <input class="input_patient_info" type="text">
-        <div class="errorText">
-          Nezadali ste priezvisko pacienta.
-        </div>
-      </div>
-
-      <div>
-        <label>Dátum narodenia:</label>
-        <input class="input_patient_info" type="date">
-        <div class="errorText">
-          Nezadali ste dátum narodenia pacienta.
-        </div>
-      </div>
-
-      <div>
-        <label>Výška:</label>
-        <input class="input_patient_info" type="number">
-        <div class="errorText">
-          Nezadali ste výšku pacienta.
-        </div>
-      </div>
-
-      <div>
-        <label>Váha:</label>
-        <input class="input_patient_info" type="number">
-        <div class="errorText">
-          Nezadali ste váhu pacienta.
-        </div>
-      </div>
-
-      <div>
-        <label>Obvod krku:</label>
-        <input class="input_patient_info" type="number">
-        <div class="errorText">
-          Nezadali ste obvod krku pacienta.
-        </div>
-      </div>
-
-      <div>
-        <button class="action_button_2" id="reset_button">Vymazať</button>
-        <button class="action_button_2" id="save_button">Uložiť</button>
-      </div>
+      <button class="action_button_2" id="reset_button" type="reset">Vymazať</button>
+      <button class="action_button_2" id="save_button" type="submit">Uložiť</button>
     </div>
   </form>
 </div>
+
+<script>
+  const form = document.getElementById('patientForm');
+  const name = document.getElementById('name');
+  const surname = document.getElementById('surname');
+  const birthDate = document.getElementById('birthDate');
+  const height = document.getElementById('height');
+  const weight = document.getElementById('weight');
+  const neckCircuit = document.getElementById('neckCircuit');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    checkInputs();
+  });
+
+  function checkInputs() {
+
+    const nameValue = name.value.trim();
+    const surnameValue = surname.value.trim();
+    const birthDateValue = birthDate.value.trim();
+    const heightValue = height.value.trim();
+    const weightValue = weight.value.trim();
+    const neckCircuitValue = neckCircuit.value.trim();
+
+    if (nameValue === '') {
+      setErrorFor(name, 'Nevyplnili ste meno pacienta.');
+    } else {
+      setSuccessFor(name);
+    }
+
+    if (surnameValue === '') {
+      setErrorFor(surname, 'Nevyplnili ste priezvisko pacienta.');
+    } else {
+      setSuccessFor(surname);
+    }
+
+    if (birthDateValue === '') {
+      setErrorFor(birthDate, 'Nevyplnili ste dátum narodenia pacienta.');
+    } else {
+      setSuccessFor(birthDate);
+    }
+
+    if (heightValue === '') {
+      setErrorFor(height, 'Nevyplnili ste výšku pacienta.');
+    } else {
+      setSuccessFor(height);
+    }
+
+    if (weightValue === '') {
+      setErrorFor(weight, 'Nevyplnili ste hmotnosť pacienta.');
+    } else {
+      setSuccessFor(weight);
+    }
+
+    if (neckCircuitValue === '') {
+      setErrorFor(neckCircuit, 'Nevyplnili ste obvod krku pacienta.');
+    } else {
+      setSuccessFor(neckCircuit);
+    }
+  }
+
+  function setErrorFor(input, message) {
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('p');
+    //add error message inside small
+    small.innerText = message;
+    // add error class
+    formControl.className = 'form-control error';
+  }
+
+  function setSuccessFor(input) {
+    const formControl = input.parentElement;
+    formControl.className = 'form-control success';
+  }
+
+</script>
