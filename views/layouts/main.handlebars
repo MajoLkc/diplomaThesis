@@ -25,6 +25,11 @@
 			height: 80px;
 			background-color: #3686BE;
 		}
+
+		h1 {
+			color: #3686BE;
+			margin-left: 25px;
+		}
 	</style>
 </head>
 
@@ -39,6 +44,7 @@
 					<button class="action_button_2" id="logout_btn" {{#if noLogout}} style="display: none;" {{/if}}>Odhlásiť</button>
 				</div>
 			</header>
+			<h1>{{pageTitle}}</h1>
 			{{{body}}}
 		</div>
 		<footer id="footer"></footer>

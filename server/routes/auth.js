@@ -24,5 +24,9 @@ export function handleLogin(req, res) {
 }
 
 export function handleLogout(req, res) {
-  res.cookies.set('auth', { expires: Date.now() });
+  req.logOut();
+  req.cookie.destroy(function () {
+    res.redirect('/login');
+  });
+  res.cookie.set('auth', { expires: Date.now() });
 }
