@@ -52,13 +52,35 @@
   const weight = document.getElementById('weight');
   const neckCircuit = document.getElementById('neckCircuit');
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    checkInputs();
+  let error = false;
+  
+  $('input').change(function () {
+    error = false;
   });
 
-  $('#save_button').click(function(){
-    location.href="/vyber_dotaznika";
+  $('#save_button').click(function (e) {
+    e.preventDefault();
+    checkInputs();
+    if (error) return;
+    let formValues = {};
+    $('input').each(function () {
+      var el = $(this); // this ukazuje na input
+      formValues[el.attr('id')] = el.val();
+    });
+    console.log(formValues);
+    $.ajax({
+      type: 'POST',
+      url: '/registracia_pacienta',
+      data: JSON.stringify(formValues),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data, status) {
+        window.location = '/vyber_dotaznika?pacient=' + data.id;
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    })
   });
 
   function checkInputs() {
@@ -114,6 +136,7 @@
     small.innerText = message;
     // add error class
     formControl.className = 'form-control error';
+    error = true;
   }
 
   function setSuccessFor(input) {

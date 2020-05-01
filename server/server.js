@@ -15,6 +15,7 @@ import notFoundRequest from './middlewares/notFound.js';
 import logErrorsHandler from './middlewares/logErrors.js';
 import errorHandler from './middlewares/serverError.js';
 import * as helpers from './utils/hbsHelpers.js';
+import { initDb } from './db.js';
 
 const PRODUCTION_MODE = 'production';
 
@@ -85,13 +86,16 @@ if (process.argv.length > 4) {
 
 // Start the server
 app.set('port', PORT);
-app.listen(app.get('port'), HOST, () => {
-  if (!process.env.NODE_ENV) {
-    console.log('process.env.NODE_ENV is not set!');
-  }
 
-  console.log(`WebService has started on ${HOST}:${PORT} running in ${process.env.NODE_ENV} mode`);
-  if (process.env.NODE_ENV !== PRODUCTION_MODE) {
-    console.log('PLEASE NOTE: your webservice is running not in a production mode!');
-  }
+initDb(() => {
+  app.listen(app.get('port'), HOST, () => {
+    if (!process.env.NODE_ENV) {
+      console.log('process.env.NODE_ENV is not set!');
+    }
+    console.log(`WebService has started on ${HOST}:${PORT} running in ${process.env.NODE_ENV} mode`);
+    if (process.env.NODE_ENV !== PRODUCTION_MODE) {
+      console.log('PLEASE NOTE: your webservice is running not in a production mode!');
+    }
+  });
 });
+
