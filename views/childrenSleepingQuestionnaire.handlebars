@@ -1,4 +1,16 @@
 <style>
+  .qustionaire_info h3 {
+    color: rgb(0, 67, 116);
+  }
+
+  .qustionaire_info b {
+    color: rgb(0, 67, 116);
+  }
+
+  .qustionaire_info u {
+    color: rgb(0, 67, 116);
+  }
+
   input[type=radio] {
     position: absolute;
     visibility: hidden;
@@ -21,10 +33,9 @@
     background-color: #3686BE;
   }
 
-  .row_content123 {
+  .row_content {
     width: 100%;
-    height: 100px;
-    /*background-color: #332f35;*/
+    height: 70px;
     float: right;
     border-top: solid 2px #3686BE;
   }
@@ -41,119 +52,350 @@
     position: absolute;
     float: left;
   }
+
+  .form_buttons {
+    text-align: center;
+  }
 </style>
 
-<form action="POST">
+<div class="qustionaire_info">
+  <h3>Informácie o dotazníku</h3>
+  <p>Tento dotazník slúži k objasneniu spánkových porúch a problémov so spánkom u Vášho dieťaťa. Pokúste sa odpovedať na
+    všetky otázky. Zamyslite sa nad poslednými 6 mesiacmi života Vášho dieťaťa a následne odpovedzte na otázky.</p>
+  <p>Označte <b>NIKDY</b>, ak sa udalosť/situácia <u>nevyskytuje</u>.</p>
+  <p>Označte <b>ZRIEDKA</b>, ak sa udalosť/situácia vyskytuje <u>1-2 krát za mesiac</u>.</p>
+  <p>Označte <b>NIEKEDY</b>, ak sa udalosť/situácia vyskytuje <u>1-2 krát za týždeň</u>.</p>
+  <p>Označte <b>ČASTO</b>, ak sa udalosť/situácia vyskytuje <u>3-5 krát za týždeň</u>.</p>
+  <p>Označte <b>VŽDY</b>, ak sa udalosť/situácia <u>denne</u>.</p>
+</div>
 
-  <div class="row_content123" id="1">
+<form action="/zoznam_pacientov" method="POST">
+
+  <div class="row_content">
     <div class="question-group">
-      <p>1. Napíšte obvyklý čas, kedy chodí Vaše dieťa večer spať:</p>
+      <p>Dotazník vypĺňal: </p>
     </div>
     <div class="radio-group">
-      <label for="q-1-option-1">Cez týždeň: </label>
-      <input type="text" id="q-1-option-1" name="answer-1-1" placeholder="napr.: 21:00">
-      <label for="q-1-option-1">Cez víkend: </label>
-      <input type="text" id="q-1-option-1" name="answer-1-2" placeholder="napr.: 21:00">
+      <input type="radio" id="creator-1" name="creator" value="Rodič">
+      <label for="creator-1">Rodič</label>
+      <input type="radio" id="creator-2" name="creator" value="Dieťa">
+      <label for="creator-2">Dieťa</label>
     </div>
   </div>
 
-  <div class="row_content123" id="1">
+  <h2>Čas na spanie</h2>
+
+  <div class="row_content" id="1">
     <div class="question-group">
-      <p>dshgbfgjdsbkjfvbdslkkbf,jdshvljcfv sdlhfvgdszljjvgblidfkjvds kgvc jhmfse vs kug vaersdsk fvdsm</p>
+      <p>1. Napíšte obvyklý čas, kedy chodí pacient večer spať cez týždeň:</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-1-option-1" name="answer-1" value="nikdy">
-      <label for="q-1-option-1">NIKDY</label>
-      <input type="radio" id="q-1-option-2" name="answer-1" value="zriedka">
-      <label for="q-1-option-2">ZRIEDKA</label>
-      <input type="radio" id="q-1-option-3" name="answer-1" value="niekedy">
-      <label for="q-1-option-3">NIEKEDY</label>
-      <input type="radio" id="q-1-option-4" name="answer-1" value="casto">
-      <label for="q-1-option-4">ČASTO</label>
-      <input type="radio" id="q-1-option-5" name="answer-1" value="vzdy">
-      <label for="q-1-option-5">VŽDY</label>
+      <input type="text" id="q-1" name="answer-1" placeholder="napr.: 21:00">
     </div>
   </div>
 
-  <div class="row_content123" id="2">
+  <div class="row_content" id="2">
     <div class="question-group">
-      <p>dshgbfgjdsbkjfvbdslkkbf,jdshvljcfv sdlhfvgdszljjvgblidfkjvds kgvc jhmfse vs kug vaersdsk fvdsm</p>
+      <p>2. Napíšte obvyklý čas, kedy chodí pacient večer spať cez víkend:</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-2-option-1" name="answer-2" value="nikdy">
-      <label for="q-2-option-1">NIKDY</label> 
-      <input type="radio" id="q-2-option-2" name="answer-2" value="zriedka">
-      <label for="q-2-option-2">ZRIEDKA</label> 
-      <input type="radio" id="q-2-option-3" name="answer-2" value="niekedy">
-      <label for="q-2-option-3">NIEKEDY</label> 
-      <input type="radio" id="q-2-option-4" name="answer-2" value="casto">
-      <label for="q-2-option-4">ČASTO</label> 
-      <input type="radio" id="q-2-option-5" name="answer-2" value="vzdy">
-      <label for="q-2-option-5">VŽDY</label> 
+      <input type="text" id="q-2" name="answer-2" placeholder="napr.: 21:00">
     </div>
   </div>
 
-  <div class="row_content123" id="3">
+  <div class="row_content" id="3">
     <div class="question-group">
-      {{!-- Question --}}
-      <p>dshgbfgjdsbkjfvbdslkkbf,jdshvljcfv sdlhfvgdszljjvgblidfkjvds kgvc jhmfse vs kug vaersdsk fvdsm</p>
+      <p>3. Napíšte obvyklý čas, ako rýchlo pacient večer zaspí po uložení do postele cez týždeň:</p>
     </div>
-    {{!-- Options/Answer --}}
     <div class="radio-group">
-      <input type="radio" id="option-1" name="selector">
-      <label for="option-1">NIKDY</label>
-      <input type="radio" id="option-2" name="selector">
-      <label for="option-2">ZRIEDKA</label>
-      <input type="radio" id="option-3" name="selector">
-      <label for="option-3">NIEKEDY</label>
-      <input type="radio" id="option-4" name="selector">
-      <label for="option-4">ČASTO</label>
-      <input type="radio" id="option-5" name="selector">
-      <label for="option-5">VŽDY</label>
+      <input type="number" id="q-3" name="answer-3" placeholder="napr.: 21:00">
     </div>
   </div>
 
-  <div class="row_content123" id="4">
+  <div class="row_content" id="4">
     <div class="question-group">
-      {{!-- Question --}}
-      <p>dshgbfgjdsbkjfvbdslkkbf,jdshvljcfv sdlhfvgdszljjvgblidfkjvds kgvc jhmfse vs kug vaersdsk fvdsm</p>
+      <p>4. Napíšte obvyklý čas, ako rýchlo pacient večer zaspí po uložení do postele cez víkend:</p>
     </div>
-    {{!-- Options/Answer --}}
     <div class="radio-group">
-      <input type="radio" id="option-1" name="selector">
-      <label for="option-1">NIKDY</label>
-      <input type="radio" id="option-2" name="selector">
-      <label for="option-2">ZRIEDKA</label>
-      <input type="radio" id="option-3" name="selector">
-      <label for="option-3">NIEKEDY</label>
-      <input type="radio" id="option-4" name="selector">
-      <label for="option-4">ČASTO</label>
-      <input type="radio" id="option-5" name="selector">
-      <label for="option-5">VŽDY</label>
+      <input type="number" id="q-4" name="answer-4" placeholder="napr.: 21:00">
     </div>
   </div>
 
-  <div class="row_content123" id="5">
+  <div class="row_content" id="5">
     <div class="question-group">
-      {{!-- Question --}}
-      <p>dshgbfgjdsbkjfvbdslkkbf,jdshvljcfv sdlhfvgdszljjvgblidfkjvds kgvc jhmfse vs kug vaersdsk fvdsm</p>
+      <p>5. Pacient chodí večer spať v rovnakú dobu.</p>
     </div>
-    {{!-- Options/Answer --}}
     <div class="radio-group">
-      <input type="radio" id="option-1" name="selector">
-      <label for="option-1">NIKDY</label>
-      <input type="radio" id="option-2" name="selector">
-      <label for="option-2">ZRIEDKA</label>
-      <input type="radio" id="option-3" name="selector">
-      <label for="option-3">NIEKEDY</label>
-      <input type="radio" id="option-4" name="selector">
-      <label for="option-4">ČASTO</label>
-      <input type="radio" id="option-5" name="selector">
-      <label for="option-5">VŽDY</label>
+      <input type="radio" id="q-5-option-1" name="answer-5" value="0">
+      <label for="q-5-option-1">NIKDY</label>
+      <input type="radio" id="q-5-option-2" name="answer-5" value="1">
+      <label for="q-5-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-5-option-3" name="answer-5" value="2">
+      <label for="q-5-option-3">NIEKEDY</label>
+      <input type="radio" id="q-5-option-4" name="answer-5" value="3">
+      <label for="q-5-option-4">ČASTO</label>
+      <input type="radio" id="q-5-option-5" name="answer-5" value="4">
+      <label for="q-5-option-5">VŽDY</label>
     </div>
   </div>
 
-  <div>
+  <div class="row_content" id="6">
+    <div class="question-group">
+      <p>6. Dieťa chodí do postele neochotne.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-6-option-1" name="answer-6" value="0">
+      <label for="q-6-option-1">NIKDY</label>
+      <input type="radio" id="q-6-option-2" name="answer-6" value="1">
+      <label for="q-6-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-6-option-3" name="answer-6" value="2">
+      <label for="q-6-option-3">NIEKEDY</label>
+      <input type="radio" id="q-6-option-4" name="answer-6" value="3">
+      <label for="q-6-option-4">ČASTO</label>
+      <input type="radio" id="q-6-option-5" name="answer-6" value="4">
+      <label for="q-6-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="7">
+    <div class="question-group">
+      <p>7. Dieťa odmieta chodiť spať v čase určenom na spanie.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-7-option-1" name="answer-7" value="0">
+      <label for="q-7-option-1">NIKDY</label>
+      <input type="radio" id="q-7-option-2" name="answer-7" value="1">
+      <label for="q-7-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-7-option-3" name="answer-7" value="2">
+      <label for="q-7-option-3">NIEKEDY</label>
+      <input type="radio" id="q-7-option-4" name="answer-7" value="3">
+      <label for="q-7-option-4">ČASTO</label>
+      <input type="radio" id="q-7-option-5" name="answer-7" value="4">
+      <label for="q-7-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="8">
+    <div class="question-group">
+      <p>8.	Dieťa večer zaspí do 20 minút.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-8-option-1" name="answer-8" value="0">
+      <label for="q-8-option-1">NIKDY</label>
+      <input type="radio" id="q-8-option-2" name="answer-8" value="1">
+      <label for="q-8-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-8-option-3" name="answer-8" value="2">
+      <label for="q-8-option-3">NIEKEDY</label>
+      <input type="radio" id="q-8-option-4" name="answer-8" value="3">
+      <label for="q-8-option-4">ČASTO</label>
+      <input type="radio" id="q-8-option-5" name="answer-8" value="4">
+      <label for="q-8-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="9">
+    <div class="question-group">
+      <p>9. Dieťa zaspí vo vlastnej posteli.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-9-option-1" name="answer-9" value="0">
+      <label for="q-9-option-1">NIKDY</label>
+      <input type="radio" id="q-9-option-2" name="answer-9" value="1">
+      <label for="q-9-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-9-option-3" name="answer-9" value="2">
+      <label for="q-9-option-3">NIEKEDY</label>
+      <input type="radio" id="q-9-option-4" name="answer-9" value="3">
+      <label for="q-9-option-4">ČASTO</label>
+      <input type="radio" id="q-9-option-5" name="answer-9" value="4">
+      <label for="q-9-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="10">
+    <div class="question-group">
+      <p>10. Dieťa zaspí v posteli svojich súrodencov.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-10-option-1" name="answer-10" value="0">
+      <label for="q-10-option-1">NIKDY</label>
+      <input type="radio" id="q-10-option-2" name="answer-10" value="1">
+      <label for="q-10-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-10-option-3" name="answer-10" value="2">
+      <label for="q-10-option-3">NIEKEDY</label>
+      <input type="radio" id="q-10-option-4" name="answer-10" value="3">
+      <label for="q-10-option-4">ČASTO</label>
+      <input type="radio" id="q-10-option-5" name="answer-10" value="4">
+      <label for="q-10-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="11">
+    <div class="question-group">
+      <p>11. Dieťa zaspáva pri hojdaní, kolísaní.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-11-option-1" name="answer-11" value="0">
+      <label for="q-11-option-1">NIKDY</label>
+      <input type="radio" id="q-11-option-2" name="answer-11" value="1">
+      <label for="q-11-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-11-option-3" name="answer-11" value="2">
+      <label for="q-11-option-3">NIEKEDY</label>
+      <input type="radio" id="q-11-option-4" name="answer-11" value="3">
+      <label for="q-11-option-4">ČASTO</label>
+      <input type="radio" id="q-11-option-5" name="answer-11" value="4">
+      <label for="q-11-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="12">
+    <div class="question-group">
+      <p>12. Dieťa mykne/trhne časťou tela počas zaspávania.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-12-option-1" name="answer-12" value="0">
+      <label for="q-12-option-1">NIKDY</label>
+      <input type="radio" id="q-12-option-2" name="answer-12" value="1">
+      <label for="q-12-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-12-option-3" name="answer-12" value="2">
+      <label for="q-12-option-3">NIEKEDY</label>
+      <input type="radio" id="q-12-option-4" name="answer-12" value="3">
+      <label for="q-12-option-4">ČASTO</label>
+      <input type="radio" id="q-12-option-5" name="answer-12" value="4">
+      <label for="q-12-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="13">
+    <div class="question-group">
+      <p>13. Dieťa vykonáva opakujúce sa pohyby telom alebo časťou tela pokiaľ zaspí.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-13-option-1" name="answer-13" value="0">
+      <label for="q-13-option-1">NIKDY</label>
+      <input type="radio" id="q-13-option-2" name="answer-13" value="1">
+      <label for="q-13-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-13-option-3" name="answer-13" value="2">
+      <label for="q-13-option-3">NIEKEDY</label>
+      <input type="radio" id="q-13-option-4" name="answer-13" value="3">
+      <label for="q-13-option-4">ČASTO</label>
+      <input type="radio" id="q-13-option-5" name="answer-13" value="4">
+      <label for="q-13-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="14">
+    <div class="question-group">
+      <p>14. Dieťa má/rozpráva živé predstavy pokiaľ zaspí.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-14-option-1" name="answer-14" value="0">
+      <label for="q-14-option-1">NIKDY</label>
+      <input type="radio" id="q-14-option-2" name="answer-14" value="1">
+      <label for="q-14-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-14-option-3" name="answer-14" value="2">
+      <label for="q-14-option-3">NIEKEDY</label>
+      <input type="radio" id="q-14-option-4" name="answer-14" value="3">
+      <label for="q-14-option-4">ČASTO</label>
+      <input type="radio" id="q-14-option-5" name="answer-14" value="4">
+      <label for="q-14-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="15">
+    <div class="question-group">
+      <p>15. Dieťa sa spotí počas zaspávania.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-15-option-1" name="answer-15" value="0">
+      <label for="q-15-option-1">NIKDY</label>
+      <input type="radio" id="q-15-option-2" name="answer-15" value="1">
+      <label for="q-15-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-15-option-3" name="answer-15" value="2">
+      <label for="q-15-option-3">NIEKEDY</label>
+      <input type="radio" id="q-15-option-4" name="answer-15" value="3">
+      <label for="q-15-option-4">ČASTO</label>
+      <input type="radio" id="q-15-option-5" name="answer-15" value="4">
+      <label for="q-15-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="16">
+    <div class="question-group">
+      <p>16. Dieťa sa bojí zaspať v tme.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-16-option-1" name="answer-16" value="0">
+      <label for="q-16-option-1">NIKDY</label>
+      <input type="radio" id="q-16-option-2" name="answer-16" value="1">
+      <label for="q-16-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-16-option-3" name="answer-16" value="2">
+      <label for="q-16-option-3">NIEKEDY</label>
+      <input type="radio" id="q-16-option-4" name="answer-16" value="3">
+      <label for="q-16-option-4">ČASTO</label>
+      <input type="radio" id="q-16-option-5" name="answer-16" value="4">
+      <label for="q-16-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="17">
+    <div class="question-group">
+      <p>17. Dieťa sa bojí zaspať samo v izbe.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-17-option-1" name="answer-17" value="0">
+      <label for="q-17-option-1">NIKDY</label>
+      <input type="radio" id="q-17-option-2" name="answer-17" value="1">
+      <label for="q-17-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-17-option-3" name="answer-17" value="2">
+      <label for="q-17-option-3">NIEKEDY</label>
+      <input type="radio" id="q-17-option-4" name="answer-17" value="3">
+      <label for="q-17-option-4">ČASTO</label>
+      <input type="radio" id="q-17-option-5" name="answer-17" value="4">
+      <label for="q-17-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="18">
+    <div class="question-group">
+      <p>18. Dieťa potrebuje špeciálnu vec na zaspanie (bábiku,...).</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-18-option-1" name="answer-18" value="0">
+      <label for="q-18-option-1">NIKDY</label>
+      <input type="radio" id="q-18-option-2" name="answer-18" value="1">
+      <label for="q-18-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-18-option-3" name="answer-18" value="2">
+      <label for="q-18-option-3">NIEKEDY</label>
+      <input type="radio" id="q-18-option-4" name="answer-18" value="3">
+      <label for="q-18-option-4">ČASTO</label>
+      <input type="radio" id="q-18-option-5" name="answer-18" value="4">
+      <label for="q-18-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="19">
+    <div class="question-group">
+      <p>19. Dieťa vyžaduje prítomnosť rodiča pri zaspávaní.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-19-option-1" name="answer-19" value="0">
+      <label for="q-19-option-1">NIKDY</label>
+      <input type="radio" id="q-19-option-2" name="answer-19" value="1">
+      <label for="q-19-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-19-option-3" name="answer-19" value="2">
+      <label for="q-19-option-3">NIEKEDY</label>
+      <input type="radio" id="q-19-option-4" name="answer-19" value="3">
+      <label for="q-19-option-4">ČASTO</label>
+      <input type="radio" id="q-19-option-5" name="answer-19" value="4">
+      <label for="q-19-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <h2>Spánok</h2>
+
+
+
+  <div class="form_buttons">
     <button class="action_button_2" id="reset_button" type="reset">Vymazať</button>
     <button class="action_button_2" id="save_button" type="submit">Uložiť</button>
   </div>
@@ -161,450 +403,46 @@
 </form>
 
 <script>
-  var x, z;
-  x = [1, 2, 3, 4, 5, 6];
-  for (var y = 0; y < 6; y++) {
-    if (x[y] % 2 == 0) {
-      z = x[y]; 
-      document.getElementById(z).style.backgroundColor = "white";
+  for (var rowNumber = 1; rowNumber <= 19; rowNumber++) {
+    if (rowNumber % 2 == 0) {
+      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
     } else {
-      z = x[y]; 
-      document.getElementById(z).style.backgroundColor = "#ACCEE5";
+      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
     }
   }
+
+  let error = false;
+
+  $('input').change(function () {
+    error = false;
+  });
+
+  $('#save_button').click(function (e) {
+    e.preventDefault();
+    checkInputs();
+    if (error) return;
+
+  });
+
+  function checkInputs() {
+    var answer, ans, a;
+    for (ans = 1; ans <= 4; ans++) {
+      answer = document.getElementsByName('answer-' + ans)[0].value.trim();
+      if (answer === '') {
+        document.getElementById(ans).style.backgroundColor = '#e4938a';
+        error = true;
+      }
+    };
+    for (ans = 5; ans <= 19; ans++) {
+      a = false;
+      for (var i = 0; i <= 4; i++) {
+        a = a || document.getElementsByName('answer-' + ans)[i].checked;
+      }
+      if (a === false) {
+        document.getElementById(ans).style.backgroundColor = '#e4938a';
+        error = true;
+      }
+    }
+  };
+
 </script>
-
-<div>
-  <p>Dotazník vypĺňal:</p>
-  <input type="radio" name="parent">
-  <label for="">rodič</label>
-  <input type="radio" name="parent">
-  <label for="">dieťa</label>
-</div>
-
-<h2>Čas na spanie</h2>
-
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">1. Napíšte obvyklý čas, kedy chodí Vaše dieťa večer spať</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div class="option_btn_container">
-      <ul>
-        <li>Počas týždňa: </li><input type="text">
-        <li>Počas víkendu: </li><input type="time">
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">2. Napíšte obvyklý čas ako rýchlo Vaše dieťa večer zaspí po uložení do postele</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div class="option_btn_container">
-      <ul>
-        <li>Počas týždňa: </li><input type="time">
-        <li>Počas víkendu: </li><input type="time">
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">3. Dieťa chodí večer spať v rovnakú dobu.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">4. Dieťa chodí do postele neochotne.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">5. Dieťa odmieta chodiť spať v čase určenom na spanie.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">6. Dieťa večer zaspí do 20 minút.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">7. Dieťa zaspí vo vlastnej posteli.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">8. Dieťa zaspí v posteli svojich súrodencov.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">9. Dieťa zaspáva pri hojdaní, kolísaní.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">10. Dieťa mykne/trhne časťou tela počas zaspávania.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">11. Dieťa vykonáva opakujúce sa pohyby telom alebo časťou tela pokiaľ zaspí.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">12. Dieťa má/rozpráva živé predstavy pokiaľ zaspí.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">13. Dieťa sa spotí počas zaspávania.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">14. Dieťa sa bojí zaspať v tme.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">15. Dieťa sa bojí zaspať samo v izbe.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">16. Dieťa potrebuje špeciálnu vec na zaspanie (bábiku, plyšáka,...)</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="question_and_options_container">
-  <div class="row_container">
-    <div id="question_container">
-      <label id="question">17. Dieťa vyžaduje prítomnosť rodiča pri zaspávaní.</label>
-    </div>
-  </div>
-  <div class="row_container">
-    <div id="options_container">
-      <div class="option_btn_container">
-        <button class="option_btn">Vždy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Často</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Niekedy</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Zriedka</button>
-      </div>
-      <div class="option_btn_container">
-        <button class="option_btn">Nikdy</button>
-      </div>
-    </div>
-  </div>
-</div>

@@ -1,5 +1,4 @@
 const MENU_VIEW = 'menu';
-const NEW_PATIENT_VIEW = 'newPatient';
 const PATIENT_LIST_VIEW = 'patientList';
 const FORM_SELECTION_VIEW = 'formSelection';
 const CHILDREN_SLEEPING_QUESTIONNAIRE = 'childrenSleepingQuestionnaire';
@@ -11,16 +10,6 @@ export function menu(req, res) {
       noLogout: false,
     };
     res.render(MENU_VIEW, context);
-  }
-}
-
-export function newPatient(req, res) {
-  if (req.user) {
-    const context = {
-      pageTitle: 'Registrácia pacienta',
-      noLogout: false,
-    };
-    res.render(NEW_PATIENT_VIEW, context);
   }
 }
 

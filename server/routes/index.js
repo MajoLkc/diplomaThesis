@@ -1,8 +1,8 @@
 import express from 'express';
 import * as apiData from './apiData.js';
 import { login, handleLogin } from './auth.js';
-import { menu, newPatient, patientList, formSelection, childrenSleepingQuestionnaire } from './menu.js';
-import { handleCreatePatient } from './patient.js';
+import { menu, patientList, formSelection, childrenSleepingQuestionnaire } from './menu.js';
+import { newPatient, handleCreatePatient } from './patient.js';
 
 const router = express.Router();
 
