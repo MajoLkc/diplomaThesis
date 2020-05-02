@@ -245,3 +245,74 @@ button[disabled]{
   width: 75%;
   height: 100%;
 }
+
+/******************************************************************************/
+/* QUESTIONAIRE PAGES */
+
+.qustionaire_info h3 {
+  color: rgb(0, 67, 116);
+}
+
+.qustionaire_info b {
+  color: rgb(0, 67, 116);
+}
+
+.qustionaire_info u {
+  color: rgb(0, 67, 116);
+}
+
+input[type=radio] {
+  position: absolute;
+  visibility: hidden;
+  display: none;
+}
+
+label {
+  color: rgb(0, 67, 116);
+  background-color: #E1EBF2;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 20px;
+  border: solid 2px #3686BE;
+  border-radius: 2px;
+}
+
+input[type=radio]:checked+label {
+  color: white;
+  background-color: #3686BE;
+}
+
+.row_content {
+  width: 100%;
+  height: 70px;
+  float: right;
+  border-top: solid 2px #3686BE;
+  border-bottom: solid 2px #3686BE;
+}
+
+.radio-group {
+  border: solid 3px lighten(#332f35, 20%);
+  display: inline-block;
+  margin: 20px;
+  overflow: hidden;
+  float: right;
+}
+
+.question-group {
+  position: absolute;
+  float: left;
+}
+
+.form_buttons {
+  text-align: center;
+}
+
+.section {
+  margin: 20px;
+  color: rgb(0, 67, 116);
+}
+
+.row_content p {
+  margin-left: 10px;
+}

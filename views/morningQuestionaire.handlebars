@@ -1,0 +1,111 @@
+<div class="qustionaire_info">
+  <h3>Informácie o dotazníku</h3>
+  <p>Zodpovedajte prosím starostlivo všetky otázky v dotazníku výberom jednej odpovede najviac sa blížiacej pravde,
+    resp. vypísaním požadovaných údajov.</p>
+</div>
+
+<form action="/zoznam_pacientov" method="POST">
+
+  <div class="row_content">
+    <div class="question-group">
+      <p>Dotazník vypĺňal: </p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="creator-1" name="creator" value="Rodič">
+      <label for="creator-1">Rodič</label>
+      <input type="radio" id="creator-2" name="creator" value="Dieťa">
+      <label for="creator-2">Dieťa</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="1">
+    <div class="question-group">
+      <p>1. V porovnaní s obvyklým spánkom doma ste (Vaše dieťa) spali:</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-1-option-1" name="answer-1" value="Rovnako">
+      <label for="q-1-option-1">ROVNAKO</label>
+      <input type="radio" id="q-1-option-2" name="answer-1" value="Lepšie">
+      <label for="q-1-option-2">LEPŠIE</label>
+      <input type="radio" id="q-1-option-3" name="answer-1" value="Horšie">
+      <label for="q-1-option-3">HORŠIE</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="2">
+    <div class="question-group">
+      <p>2. Ak ste spali horšie, uveďte prosím dôvod:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-2" name="answer-2">
+    </div>
+  </div>
+
+  <div class="row_content" id="3">
+    <div class="question-group">
+      <p>3. V porovnaní s obvyklým spánkom bol Váš (Vášho dieťaťa) spánok:</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-3-option-1" name="answer-3" value="Rovnako hlboký">
+      <label for="q-3-option-1">ROVNAKO HLBOKÝ</label>
+      <input type="radio" id="q-3-option-2" name="answer-3" value="Plytší">
+      <label for="q-3-option-2">PLYTŠÍ</label>
+      <input type="radio" id="q-3-option-3" name="answer-3" value="Hlbší">
+      <label for="q-3-option-3">HLBŠÍ</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="4">
+    <div class="question-group">
+      <p>4. Trvalo Vám (Vášmu dieťaťu) zaspatie dlhšie ako obvykle?</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-4-option-1" name="answer-4" value="áno">
+      <label for="q-4-option-1">ÁNO</label>
+      <input type="radio" id="q-4-option-2" name="answer-4" value="nie">
+      <label for="q-4-option-2">NIE</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="5">
+    <div class="question-group">
+      <p>5. Budili ste sa (Vaše dieťa) počas noci častejšie ako obvykle?</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-5-option-1" name="answer-5" value="áno">
+      <label for="q-5-option-1">ÁNO</label>
+      <input type="radio" id="q-5-option-2" name="answer-5" value="nie">
+      <label for="q-5-option-2">NIE</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="6">
+    <div class="question-group">
+      <p>6. Trvalo Vám (Vášmu dieťaťu) dlhšie kým ste zaspali po nočnom prebudení?</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-6-option-1" name="answer-6" value="áno">
+      <label for="q-6-option-1">ÁNO</label>
+      <input type="radio" id="q-6-option-2" name="answer-6" value="nie">
+      <label for="q-6-option-2">NIE</label>
+    </div>
+  </div>
+
+  <div class="form_buttons">
+    <button class="action_button_2" id="reset_button" type="reset">Vymazať</button>
+    <button class="action_button_2" id="save_button" type="submit">Uložiť</button>
+  </div>
+
+</form>
+
+<script>
+  for (var rowNumber = 1; rowNumber <= 6; rowNumber++) {
+    if (rowNumber % 2 == 0) {
+      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
+    } else {
+      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
+    }
+  }
+
+  
+</script>

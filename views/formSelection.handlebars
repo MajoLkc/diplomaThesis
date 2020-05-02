@@ -9,7 +9,7 @@
     <button class="action_button" onclick="location.href='epworthskaSkalaSpavosti.html'">Epworth</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" onclick="location.href='rannyDotaznik.html'">Ranný dotazník</button>
+    <button class="action_button" id="morningQuestionaire">Ranný dotazník</button>
   </div>
   <div class="loginBtb_container">
     <button class="action_button">Iný</button>
@@ -33,7 +33,10 @@
   };
 
   $('#csq').click(function () {
-
     location.href = "/vyber_dotaznika/detsky_spankovy_dotaznik?pacient=" + getUrlParameter('pacient');
+  });
+
+  $('#morningQuestionaire').click(function () {
+    location.href = "/vyber_dotaznika/ranny_dotaznik?pacient=" + getUrlParameter('pacient');
   });
 </script>
