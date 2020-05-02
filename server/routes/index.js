@@ -1,8 +1,9 @@
 import express from 'express';
 import * as apiData from './apiData.js';
 import { login, handleLogin } from './auth.js';
-import { menu, patientList, formSelection, childrenSleepingQuestionnaire } from './menu.js';
+import { menu, patientList, formSelection } from './menu.js';
 import { newPatient, handleCreatePatient } from './patient.js';
+import { childrenSleepingQuestionnaire, handleCHSQ } from './CHSQ.js';
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.post('/registracia_pacienta', handleCreatePatient);
 router.get('/zoznam_pacientov', patientList);
 router.get('/vyber_dotaznika', formSelection);
 router.get('/vyber_dotaznika/detsky_spankovy_dotaznik', childrenSleepingQuestionnaire);
+router.post('/vyber_dotaznika/detsky_spankovy_dotaznik', handleCHSQ);
 //---------------------------------------------
 
 // Rendering data from API --------------------

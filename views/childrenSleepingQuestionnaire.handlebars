@@ -38,6 +38,7 @@
     height: 70px;
     float: right;
     border-top: solid 2px #3686BE;
+    border-bottom: solid 2px #3686BE;
   }
 
   .radio-group {
@@ -55,6 +56,15 @@
 
   .form_buttons {
     text-align: center;
+  }
+
+  .section {
+    margin: 20px;
+    color: rgb(0, 67, 116);
+  }
+
+  .row_content p {
+    margin-left: 10px;
   }
 </style>
 
@@ -83,7 +93,7 @@
     </div>
   </div>
 
-  <h2>Čas na spanie</h2>
+  <div class="section"><h2>Čas na spanie</h2></div>
 
   <div class="row_content" id="1">
     <div class="question-group">
@@ -156,7 +166,7 @@
       <label for="q-6-option-5">VŽDY</label>
     </div>
   </div>
-
+  
   <div class="row_content" id="7">
     <div class="question-group">
       <p>7. Dieťa odmieta chodiť spať v čase určenom na spanie.</p>
@@ -177,7 +187,7 @@
 
   <div class="row_content" id="8">
     <div class="question-group">
-      <p>8.	Dieťa večer zaspí do 20 minút.</p>
+      <p>8. Dieťa večer zaspí do 20 minút.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-8-option-1" name="answer-8" value="0">
@@ -391,9 +401,641 @@
     </div>
   </div>
 
-  <h2>Spánok</h2>
+  <div class="section"><h2>Spánok</h2></div>
 
+  <div class="row_content" id="20">
+    <div class="question-group">
+      <p>1. Napíšte, koľko Vaše dieťa obvykle spí počas noci cez týždeň:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-20" name="answer-20" placeholder="napr.: 21:00">
+    </div>
+  </div>
 
+  <div class="row_content" id="21">
+    <div class="question-group">
+      <p>2. Napíšte, koľko Vaše dieťa obvykle spí počas noci cez víkend:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-21" name="answer-21" placeholder="napr.: 21:00">
+    </div>
+  </div>
+
+  <div class="row_content" id="22">
+    <div class="question-group">
+      <p>3. Dieťa spí primerane.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-22-option-1" name="answer-22" value="0">
+      <label for="q-22-option-1">NIKDY</label>
+      <input type="radio" id="q-22-option-2" name="answer-22" value="1">
+      <label for="q-22-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-22-option-3" name="answer-22" value="2">
+      <label for="q-22-option-3">NIEKEDY</label>
+      <input type="radio" id="q-22-option-4" name="answer-22" value="3">
+      <label for="q-22-option-4">ČASTO</label>
+      <input type="radio" id="q-22-option-5" name="answer-22" value="4">
+      <label for="q-22-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="23">
+    <div class="question-group">
+      <p>4. Dieťa spí málo.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-23-option-1" name="answer-23" value="0">
+      <label for="q-23-option-1">NIKDY</label>
+      <input type="radio" id="q-23-option-2" name="answer-23" value="1">
+      <label for="q-23-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-23-option-3" name="answer-23" value="2">
+      <label for="q-23-option-3">NIEKEDY</label>
+      <input type="radio" id="q-23-option-4" name="answer-23" value="3">
+      <label for="q-23-option-4">ČASTO</label>
+      <input type="radio" id="q-23-option-5" name="answer-23" value="4">
+      <label for="q-23-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="24">
+    <div class="question-group">
+      <p>5. Dieťa spí veľa.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-24-option-1" name="answer-24" value="0">
+      <label for="q-24-option-1">NIKDY</label>
+      <input type="radio" id="q-24-option-2" name="answer-24" value="1">
+      <label for="q-24-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-24-option-3" name="answer-24" value="2">
+      <label for="q-24-option-3">NIEKEDY</label>
+      <input type="radio" id="q-24-option-4" name="answer-24" value="3">
+      <label for="q-24-option-4">ČASTO</label>
+      <input type="radio" id="q-24-option-5" name="answer-24" value="4">
+      <label for="q-24-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="25">
+    <div class="question-group">
+      <p>6.	Dieťa sa v noci pomočuje.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-25-option-1" name="answer-25" value="0">
+      <label for="q-25-option-1">NIKDY</label>
+      <input type="radio" id="q-25-option-2" name="answer-25" value="1">
+      <label for="q-25-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-25-option-3" name="answer-25" value="2">
+      <label for="q-25-option-3">NIEKEDY</label>
+      <input type="radio" id="q-25-option-4" name="answer-25" value="3">
+      <label for="q-25-option-4">ČASTO</label>
+      <input type="radio" id="q-25-option-5" name="answer-25" value="4">
+      <label for="q-25-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="26">
+    <div class="question-group">
+      <p>7.	Dieťa sa pomočuje počas dňa.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-26-option-1" name="answer-26" value="0">
+      <label for="q-26-option-1">NIKDY</label>
+      <input type="radio" id="q-26-option-2" name="answer-26" value="1">
+      <label for="q-26-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-26-option-3" name="answer-26" value="2">
+      <label for="q-26-option-3">NIEKEDY</label>
+      <input type="radio" id="q-26-option-4" name="answer-26" value="3">
+      <label for="q-26-option-4">ČASTO</label>
+      <input type="radio" id="q-26-option-5" name="answer-26" value="4">
+      <label for="q-26-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="27">
+    <div class="question-group">
+      <p>8.	Dieťa hovorí zo sna.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-27-option-1" name="answer-27" value="0">
+      <label for="q-27-option-1">NIKDY</label>
+      <input type="radio" id="q-27-option-2" name="answer-27" value="1">
+      <label for="q-27-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-27-option-3" name="answer-27" value="2">
+      <label for="q-27-option-3">NIEKEDY</label>
+      <input type="radio" id="q-27-option-4" name="answer-27" value="3">
+      <label for="q-27-option-4">ČASTO</label>
+      <input type="radio" id="q-27-option-5" name="answer-27" value="4">
+      <label for="q-27-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="28">
+    <div class="question-group">
+      <p>9. Dieťa je počas spánku nepokojné, pohybuje končatinami, odkopáva perinu alebo často mení polohu.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-28-option-1" name="answer-28" value="0">
+      <label for="q-28-option-1">NIKDY</label>
+      <input type="radio" id="q-28-option-2" name="answer-28" value="1">
+      <label for="q-28-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-28-option-3" name="answer-28" value="2">
+      <label for="q-28-option-3">NIEKEDY</label>
+      <input type="radio" id="q-28-option-4" name="answer-28" value="3">
+      <label for="q-28-option-4">ČASTO</label>
+      <input type="radio" id="q-28-option-5" name="answer-28" value="4">
+      <label for="q-28-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="29">
+    <div class="question-group">
+      <p>10. Dieťa chodí počas noci (je námesačné).</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-29-option-1" name="answer-29" value="0">
+      <label for="q-29-option-1">NIKDY</label>
+      <input type="radio" id="q-29-option-2" name="answer-29" value="1">
+      <label for="q-29-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-29-option-3" name="answer-29" value="2">
+      <label for="q-29-option-3">NIEKEDY</label>
+      <input type="radio" id="q-29-option-4" name="answer-29" value="3">
+      <label for="q-29-option-4">ČASTO</label>
+      <input type="radio" id="q-29-option-5" name="answer-29" value="4">
+      <label for="q-29-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="30">
+    <div class="question-group">
+      <p>11. Dieťa sa zobudí so spánku na bolesť.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-30-option-1" name="answer-30" value="0">
+      <label for="q-30-option-1">NIKDY</label>
+      <input type="radio" id="q-30-option-2" name="answer-30" value="1">
+      <label for="q-30-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-30-option-3" name="answer-30" value="2">
+      <label for="q-30-option-3">NIEKEDY</label>
+      <input type="radio" id="q-30-option-4" name="answer-30" value="3">
+      <label for="q-30-option-4">ČASTO</label>
+      <input type="radio" id="q-30-option-5" name="answer-30" value="4">
+      <label for="q-30-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="31">
+    <div class="question-group">
+      <p>12. Dieťa škrípe zubami počas spánku.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-31-option-1" name="answer-31" value="0">
+      <label for="q-31-option-1">NIKDY</label>
+      <input type="radio" id="q-31-option-2" name="answer-31" value="1">
+      <label for="q-31-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-31-option-3" name="answer-31" value="2">
+      <label for="q-31-option-3">NIEKEDY</label>
+      <input type="radio" id="q-31-option-4" name="answer-31" value="3">
+      <label for="q-31-option-4">ČASTO</label>
+      <input type="radio" id="q-31-option-5" name="answer-31" value="4">
+      <label for="q-31-option-5">VŽDY</label>
+    </div>
+  </div>
+  
+  <div class="row_content" id="32">
+    <div class="question-group">
+      <p>13. Dieťa nahlas chrápe počas spánku.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-32-option-1" name="answer-32" value="0">
+      <label for="q-32-option-1">NIKDY</label>
+      <input type="radio" id="q-32-option-2" name="answer-32" value="1">
+      <label for="q-32-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-32-option-3" name="answer-32" value="2">
+      <label for="q-32-option-3">NIEKEDY</label>
+      <input type="radio" id="q-32-option-4" name="answer-32" value="3">
+      <label for="q-32-option-4">ČASTO</label>
+      <input type="radio" id="q-32-option-5" name="answer-32" value="4">
+      <label for="q-32-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="33">
+    <div class="question-group">
+      <p>14. Dieťa prestane na chvíľu dýchať počas spánku.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-33-option-1" name="answer-33" value="0">
+      <label for="q-33-option-1">NIKDY</label>
+      <input type="radio" id="q-33-option-2" name="answer-33" value="1">
+      <label for="q-33-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-33-option-3" name="answer-33" value="2">
+      <label for="q-33-option-3">NIEKEDY</label>
+      <input type="radio" id="q-33-option-4" name="answer-33" value="3">
+      <label for="q-33-option-4">ČASTO</label>
+      <input type="radio" id="q-33-option-5" name="answer-33" value="4">
+      <label for="q-33-option-5">VŽDY</label>
+    </div>
+  </div>
+  
+  <div class="row_content" id="34">
+    <div class="question-group">
+      <p>15. Dieťa ťažko dýcha počas spánku.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-34-option-1" name="answer-34" value="0">
+      <label for="q-34-option-1">NIKDY</label>
+      <input type="radio" id="q-34-option-2" name="answer-34" value="1">
+      <label for="q-34-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-34-option-3" name="answer-34" value="2">
+      <label for="q-34-option-3">NIEKEDY</label>
+      <input type="radio" id="q-34-option-4" name="answer-34" value="3">
+      <label for="q-34-option-4">ČASTO</label>
+      <input type="radio" id="q-34-option-5" name="answer-34" value="4">
+      <label for="q-34-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="35">
+    <div class="question-group">
+      <p>16. Dieťa sa výraznejšie potí počas spánku.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-35-option-1" name="answer-35" value="0">
+      <label for="q-35-option-1">NIKDY</label>
+      <input type="radio" id="q-35-option-2" name="answer-35" value="1">
+      <label for="q-35-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-35-option-3" name="answer-35" value="2">
+      <label for="q-35-option-3">NIEKEDY</label>
+      <input type="radio" id="q-35-option-4" name="answer-35" value="3">
+      <label for="q-35-option-4">ČASTO</label>
+      <input type="radio" id="q-35-option-5" name="answer-35" value="4">
+      <label for="q-35-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="36">
+    <div class="question-group">
+      <p>17. Dieťa má problémy so spánkom mimo domova.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-36-option-1" name="answer-36" value="0">
+      <label for="q-36-option-1">NIKDY</label>
+      <input type="radio" id="q-36-option-2" name="answer-36" value="1">
+      <label for="q-36-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-36-option-3" name="answer-36" value="2">
+      <label for="q-36-option-3">NIEKEDY</label>
+      <input type="radio" id="q-36-option-4" name="answer-36" value="3">
+      <label for="q-36-option-4">ČASTO</label>
+      <input type="radio" id="q-36-option-5" name="answer-36" value="4">
+      <label for="q-36-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="37">
+    <div class="question-group">
+      <p>18. Dieťa sa budí počas noci s plačom, krikom alebo zmetené, ťažko sa ho darí utíšiť a na túto nočnú udalosť si ráno nepamätá.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-37-option-1" name="answer-37" value="0">
+      <label for="q-37-option-1">NIKDY</label>
+      <input type="radio" id="q-37-option-2" name="answer-37" value="1">
+      <label for="q-37-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-37-option-3" name="answer-37" value="2">
+      <label for="q-37-option-3">NIEKEDY</label>
+      <input type="radio" id="q-37-option-4" name="answer-37" value="3">
+      <label for="q-37-option-4">ČASTO</label>
+      <input type="radio" id="q-37-option-5" name="answer-37" value="4">
+      <label for="q-37-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="38">
+    <div class="question-group">
+      <p>19. Dieťa máva nočné mory, na ktoré si ráno nepamätá.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-38-option-1" name="answer-38" value="0">
+      <label for="q-38-option-1">NIKDY</label>
+      <input type="radio" id="q-38-option-2" name="answer-38" value="1">
+      <label for="q-38-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-38-option-3" name="answer-38" value="2">
+      <label for="q-38-option-3">NIEKEDY</label>
+      <input type="radio" id="q-38-option-4" name="answer-38" value="3">
+      <label for="q-38-option-4">ČASTO</label>
+      <input type="radio" id="q-38-option-5" name="answer-38" value="4">
+      <label for="q-38-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="39">
+    <div class="question-group">
+      <p>20. Dieťa sa zobudí 1 krát počas noci.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-39-option-1" name="answer-39" value="0">
+      <label for="q-39-option-1">NIKDY</label>
+      <input type="radio" id="q-39-option-2" name="answer-39" value="1">
+      <label for="q-39-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-39-option-3" name="answer-39" value="2">
+      <label for="q-39-option-3">NIEKEDY</label>
+      <input type="radio" id="q-39-option-4" name="answer-39" value="3">
+      <label for="q-39-option-4">ČASTO</label>
+      <input type="radio" id="q-39-option-5" name="answer-39" value="4">
+      <label for="q-39-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="40">
+    <div class="question-group">
+      <p>21. Dieťa sa budí 2 a viac krát počas noci.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-40-option-1" name="answer-40" value="0">
+      <label for="q-40-option-1">NIKDY</label>
+      <input type="radio" id="q-40-option-2" name="answer-40" value="1">
+      <label for="q-40-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-40-option-3" name="answer-40" value="2">
+      <label for="q-40-option-3">NIEKEDY</label>
+      <input type="radio" id="q-40-option-4" name="answer-40" value="3">
+      <label for="q-40-option-4">ČASTO</label>
+      <input type="radio" id="q-40-option-5" name="answer-40" value="4">
+      <label for="q-40-option-5">VŽDY</label>
+    </div>
+  </div> 
+  
+  <div class="row_content" id="41">
+    <div class="question-group">
+      <p>22. Dieťa po prebudení počas noci má problém znova zaspať.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-41-option-1" name="answer-41" value="0">
+      <label for="q-41-option-1">NIKDY</label>
+      <input type="radio" id="q-41-option-2" name="answer-41" value="1">
+      <label for="q-41-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-41-option-3" name="answer-41" value="2">
+      <label for="q-41-option-3">NIEKEDY</label>
+      <input type="radio" id="q-41-option-4" name="answer-41" value="3">
+      <label for="q-41-option-4">ČASTO</label>
+      <input type="radio" id="q-41-option-5" name="answer-41" value="4">
+      <label for="q-41-option-5">VŽDY</label>
+    </div>
+  </div> 
+  
+  <div class="row_content" id="42">
+    <div class="question-group">
+      <p>23. Napíšte, koľko minút obvykle trvá prebudenie dieťaťa počas noci:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-42" name="answer-42" placeholder="napr.: 20">
+    </div>
+  </div>
+
+  <div class="section"><h2>Ranné vstávanie</h2></div>
+  
+  <div class="row_content" id="43">
+    <div class="question-group">
+      <p>1. Napíšte obvyklý čas vstávania Vášho dieťaťa počas týždňa:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-43" name="answer-43" placeholder="napr.: 7:00">
+    </div>
+  </div>
+
+  <div class="row_content" id="44">
+    <div class="question-group">
+      <p>2. Napíšte obvyklý čas vstávania Vášho dieťaťa počas víkendu:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-44" name="answer-44" placeholder="napr.: 7:00">
+    </div>
+  </div>
+
+  <div class="row_content" id="45">
+    <div class="question-group">
+      <p>3.	Dieťa sa zobudí ráno samé.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-45-option-1" name="answer-45" value="0">
+      <label for="q-45-option-1">NIKDY</label>
+      <input type="radio" id="q-45-option-2" name="answer-45" value="1">
+      <label for="q-45-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-45-option-3" name="answer-45" value="2">
+      <label for="q-45-option-3">NIEKEDY</label>
+      <input type="radio" id="q-45-option-4" name="answer-45" value="3">
+      <label for="q-45-option-4">ČASTO</label>
+      <input type="radio" id="q-45-option-5" name="answer-45" value="4">
+      <label for="q-45-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="46">
+    <div class="question-group">
+      <p>4.	Dieťa sa zobudí ráno pomocou budíka.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-46-option-1" name="answer-46" value="0">
+      <label for="q-46-option-1">NIKDY</label>
+      <input type="radio" id="q-46-option-2" name="answer-46" value="1">
+      <label for="q-46-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-46-option-3" name="answer-46" value="2">
+      <label for="q-46-option-3">NIEKEDY</label>
+      <input type="radio" id="q-46-option-4" name="answer-46" value="3">
+      <label for="q-46-option-4">ČASTO</label>
+      <input type="radio" id="q-46-option-5" name="answer-46" value="4">
+      <label for="q-46-option-5">VŽDY</label>
+    </div>
+  </div> 
+
+  <div class="row_content" id="47">
+    <div class="question-group">
+      <p>5.	Dieťa vstáva so zlou náladou.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-47-option-1" name="answer-47" value="0">
+      <label for="q-47-option-1">NIKDY</label>
+      <input type="radio" id="q-47-option-2" name="answer-47" value="1">
+      <label for="q-47-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-47-option-3" name="answer-47" value="2">
+      <label for="q-47-option-3">NIEKEDY</label>
+      <input type="radio" id="q-47-option-4" name="answer-47" value="3">
+      <label for="q-47-option-4">ČASTO</label>
+      <input type="radio" id="q-47-option-5" name="answer-47" value="4">
+      <label for="q-47-option-5">VŽDY</label>
+    </div>
+  </div> 
+
+  <div class="row_content" id="48">
+    <div class="question-group">
+      <p>6.	Dieťa zobudí ráno súrodenec alebo rodič.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-48-option-1" name="answer-48" value="0">
+      <label for="q-48-option-1">NIKDY</label>
+      <input type="radio" id="q-48-option-2" name="answer-48" value="1">
+      <label for="q-48-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-48-option-3" name="answer-48" value="2">
+      <label for="q-48-option-3">NIEKEDY</label>
+      <input type="radio" id="q-48-option-4" name="answer-48" value="3">
+      <label for="q-48-option-4">ČASTO</label>
+      <input type="radio" id="q-48-option-5" name="answer-48" value="4">
+      <label for="q-48-option-5">VŽDY</label>
+    </div>
+  </div> 
+
+  <div class="row_content" id="49">
+    <div class="question-group">
+      <p>7.	Dieťa ráno odmieta vstať / budí sa veľmi ťažko.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-49-option-1" name="answer-49" value="0">
+      <label for="q-49-option-1">NIKDY</label>
+      <input type="radio" id="q-49-option-2" name="answer-49" value="1">
+      <label for="q-49-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-49-option-3" name="answer-49" value="2">
+      <label for="q-49-option-3">NIEKEDY</label>
+      <input type="radio" id="q-49-option-4" name="answer-49" value="3">
+      <label for="q-49-option-4">ČASTO</label>
+      <input type="radio" id="q-49-option-5" name="answer-49" value="4">
+      <label for="q-49-option-5">VŽDY</label>
+    </div>
+  </div> 
+
+  <div class="row_content" id="50">
+    <div class="question-group">
+      <p>8.	Dieťa vstáva ráno veľmi skoro.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-50-option-1" name="answer-50" value="0">
+      <label for="q-50-option-1">NIKDY</label>
+      <input type="radio" id="q-50-option-2" name="answer-50" value="1">
+      <label for="q-50-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-50-option-3" name="answer-50" value="2">
+      <label for="q-50-option-3">NIEKEDY</label>
+      <input type="radio" id="q-50-option-4" name="answer-50" value="3">
+      <label for="q-50-option-4">ČASTO</label>
+      <input type="radio" id="q-50-option-5" name="answer-50" value="4">
+      <label for="q-50-option-5">VŽDY</label>
+    </div>
+  </div> 
+
+  <div class="row_content" id="51">
+    <div class="question-group">
+      <p>9.	Dieťa je ráno hladné a chutí mu.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-51-option-1" name="answer-51" value="0">
+      <label for="q-51-option-1">NIKDY</label>
+      <input type="radio" id="q-51-option-2" name="answer-51" value="1">
+      <label for="q-51-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-51-option-3" name="answer-51" value="2">
+      <label for="q-51-option-3">NIEKEDY</label>
+      <input type="radio" id="q-51-option-4" name="answer-51" value="3">
+      <label for="q-51-option-4">ČASTO</label>
+      <input type="radio" id="q-51-option-5" name="answer-51" value="4">
+      <label for="q-51-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="52">
+    <div class="question-group">
+      <p>10. Dieťa sa zobudí ráno unavené.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-52-option-1" name="answer-52" value="0">
+      <label for="q-52-option-1">NIKDY</label>
+      <input type="radio" id="q-52-option-2" name="answer-52" value="1">
+      <label for="q-52-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-52-option-3" name="answer-52" value="2">
+      <label for="q-52-option-3">NIEKEDY</label>
+      <input type="radio" id="q-52-option-4" name="answer-52" value="3">
+      <label for="q-52-option-4">ČASTO</label>
+      <input type="radio" id="q-52-option-5" name="answer-52" value="4">
+      <label for="q-52-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="53">
+    <div class="question-group">
+      <p>11. Dieťa sa ráno cíti stuhnuté/neschopné sa hýbať.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-53-option-1" name="answer-53" value="0">
+      <label for="q-53-option-1">NIKDY</label>
+      <input type="radio" id="q-53-option-2" name="answer-53" value="1">
+      <label for="q-53-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-53-option-3" name="answer-53" value="2">
+      <label for="q-53-option-3">NIEKEDY</label>
+      <input type="radio" id="q-53-option-4" name="answer-53" value="3">
+      <label for="q-53-option-4">ČASTO</label>
+      <input type="radio" id="q-53-option-5" name="answer-53" value="4">
+      <label for="q-53-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="section"><h2>Spánok počas dňa</h2></div>
+
+  <div class="row_content" id="54">
+    <div class="question-group">
+      <p>1.	Dieťa zaspáva počas dňa.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-54-option-1" name="answer-54" value="0">
+      <label for="q-54-option-1">NIKDY</label>
+      <input type="radio" id="q-54-option-2" name="answer-54" value="1">
+      <label for="q-54-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-54-option-3" name="answer-54" value="2">
+      <label for="q-54-option-3">NIEKEDY</label>
+      <input type="radio" id="q-54-option-4" name="answer-54" value="3">
+      <label for="q-54-option-4">ČASTO</label>
+      <input type="radio" id="q-54-option-5" name="answer-54" value="4">
+      <label for="q-54-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="55">
+    <div class="question-group">
+      <p>2.	Dieťa zrazu zaspí počas nejakej činnosti (napr. hra).</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-55-option-1" name="answer-55" value="0">
+      <label for="q-55-option-1">NIKDY</label>
+      <input type="radio" id="q-55-option-2" name="answer-55" value="1">
+      <label for="q-55-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-55-option-3" name="answer-55" value="2">
+      <label for="q-55-option-3">NIEKEDY</label>
+      <input type="radio" id="q-55-option-4" name="answer-55" value="3">
+      <label for="q-55-option-4">ČASTO</label>
+      <input type="radio" id="q-55-option-5" name="answer-55" value="4">
+      <label for="q-55-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="56">
+    <div class="question-group">
+      <p>3.	Dieťa vyzerá unavene počas dňa.</p>
+    </div>
+    <div class="radio-group">
+      <input type="radio" id="q-56-option-1" name="answer-56" value="0">
+      <label for="q-56-option-1">NIKDY</label>
+      <input type="radio" id="q-56-option-2" name="answer-56" value="1">
+      <label for="q-56-option-2">ZRIEDKA</label>
+      <input type="radio" id="q-56-option-3" name="answer-56" value="2">
+      <label for="q-56-option-3">NIEKEDY</label>
+      <input type="radio" id="q-56-option-4" name="answer-56" value="3">
+      <label for="q-56-option-4">ČASTO</label>
+      <input type="radio" id="q-56-option-5" name="answer-56" value="4">
+      <label for="q-56-option-5">VŽDY</label>
+    </div>
+  </div>
+
+  <div class="row_content" id="57">
+    <div class="question-group">
+      <p>4. Napíšte, pri akých činnostiach dieťa zaspí, alebo je unavené počas dňa:</p>
+    </div>
+    <div class="radio-group">
+      <input type="text" id="q-57" name="answer-57" placeholder="napr.: 7:00">
+    </div>
+  </div>
 
   <div class="form_buttons">
     <button class="action_button_2" id="reset_button" type="reset">Vymazať</button>
@@ -403,7 +1045,7 @@
 </form>
 
 <script>
-  for (var rowNumber = 1; rowNumber <= 19; rowNumber++) {
+  for (var rowNumber = 1; rowNumber <= 57; rowNumber++) {
     if (rowNumber % 2 == 0) {
       document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
     } else {
@@ -421,8 +1063,51 @@
     e.preventDefault();
     checkInputs();
     if (error) return;
-
+    let formValues = {};
+    $('input').each(function () {
+      var el = $(this); // this ukazuje na input
+      //console.log(el.prop('checked')); //vracia true/false
+      //console.log($( "input:checked" ).val());
+      //if (el.prop('checked')) formValues[el.attr('name')] = $( "input:checked" ).val();
+      formValues[el.attr('name')] = el.val();
+    });
+    //$('input').prop('checked').each(function () {
+    //formValues[$('input').attr('name')] = $("input:checked").val();
+    //});
+    $('input:checked').each(function () {
+      var el = $(this);
+      formValues[el.attr('name')] = el.val();
+    });
+    console.log(formValues);
+    $.ajax({
+      type: 'POST',
+      url: '/vyber_dotaznika/detsky_spankovy_dotaznik',
+      data: JSON.stringify(formValues),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data, status) {
+        window.location = '/zoznam_pacientov';
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    })
   });
+
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  };
 
   function checkInputs() {
     var answer, ans, a;
@@ -433,7 +1118,7 @@
         error = true;
       }
     };
-    for (ans = 5; ans <= 19; ans++) {
+    for (ans = 5; ans <= 6; ans++) {
       a = false;
       for (var i = 0; i <= 4; i++) {
         a = a || document.getElementsByName('answer-' + ans)[i].checked;
