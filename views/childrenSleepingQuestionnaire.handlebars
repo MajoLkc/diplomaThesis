@@ -1,7 +1,3 @@
-<style>
-  
-</style>
-
 <div class="qustionaire_info">
   <h3>Informácie o dotazníku</h3>
   <p>Tento dotazník slúži k objasneniu spánkových porúch a problémov so spánkom u Vášho dieťaťa. Pokúste sa odpovedať na
@@ -15,7 +11,7 @@
 
 <form action="/zoznam_pacientov" method="POST">
 
-  <div class="row_content">
+  <div class="row_content" id="0">
     <div class="question-group">
       <p>Dotazník vypĺňal: </p>
     </div>
@@ -27,7 +23,9 @@
     </div>
   </div>
 
-  <div class="section"><h2>Čas na spanie</h2></div>
+  <div class="section">
+    <h2>Čas na spanie</h2>
+  </div>
 
   <div class="row_content" id="1">
     <div class="question-group">
@@ -100,7 +98,7 @@
       <label for="q-6-option-5">VŽDY</label>
     </div>
   </div>
-  
+
   <div class="row_content" id="7">
     <div class="question-group">
       <p>7. Dieťa odmieta chodiť spať v čase určenom na spanie.</p>
@@ -335,7 +333,9 @@
     </div>
   </div>
 
-  <div class="section"><h2>Spánok</h2></div>
+  <div class="section">
+    <h2>Spánok</h2>
+  </div>
 
   <div class="row_content" id="20">
     <div class="question-group">
@@ -411,7 +411,7 @@
 
   <div class="row_content" id="25">
     <div class="question-group">
-      <p>6.	Dieťa sa v noci pomočuje.</p>
+      <p>6. Dieťa sa v noci pomočuje.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-25-option-1" name="answer-25" value="0">
@@ -429,7 +429,7 @@
 
   <div class="row_content" id="26">
     <div class="question-group">
-      <p>7.	Dieťa sa pomočuje počas dňa.</p>
+      <p>7. Dieťa sa pomočuje počas dňa.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-26-option-1" name="answer-26" value="0">
@@ -447,7 +447,7 @@
 
   <div class="row_content" id="27">
     <div class="question-group">
-      <p>8.	Dieťa hovorí zo sna.</p>
+      <p>8. Dieťa hovorí zo sna.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-27-option-1" name="answer-27" value="0">
@@ -534,7 +534,7 @@
       <label for="q-31-option-5">VŽDY</label>
     </div>
   </div>
-  
+
   <div class="row_content" id="32">
     <div class="question-group">
       <p>13. Dieťa nahlas chrápe počas spánku.</p>
@@ -570,7 +570,7 @@
       <label for="q-33-option-5">VŽDY</label>
     </div>
   </div>
-  
+
   <div class="row_content" id="34">
     <div class="question-group">
       <p>15. Dieťa ťažko dýcha počas spánku.</p>
@@ -627,7 +627,8 @@
 
   <div class="row_content" id="37">
     <div class="question-group">
-      <p>18. Dieťa sa budí počas noci s plačom, krikom alebo zmetené, ťažko sa ho darí utíšiť a na túto nočnú udalosť si ráno nepamätá.</p>
+      <p>18. Dieťa sa budí počas noci s plačom, krikom alebo zmetené, ťažko sa ho darí utíšiť a na túto nočnú udalosť si
+        ráno nepamätá.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-37-option-1" name="answer-37" value="0">
@@ -695,8 +696,8 @@
       <input type="radio" id="q-40-option-5" name="answer-40" value="4">
       <label for="q-40-option-5">VŽDY</label>
     </div>
-  </div> 
-  
+  </div>
+
   <div class="row_content" id="41">
     <div class="question-group">
       <p>22. Dieťa po prebudení počas noci má problém znova zaspať.</p>
@@ -713,8 +714,8 @@
       <input type="radio" id="q-41-option-5" name="answer-41" value="4">
       <label for="q-41-option-5">VŽDY</label>
     </div>
-  </div> 
-  
+  </div>
+
   <div class="row_content" id="42">
     <div class="question-group">
       <p>23. Napíšte, koľko minút obvykle trvá prebudenie dieťaťa počas noci:</p>
@@ -724,8 +725,10 @@
     </div>
   </div>
 
-  <div class="section"><h2>Ranné vstávanie</h2></div>
-  
+  <div class="section">
+    <h2>Ranné vstávanie</h2>
+  </div>
+
   <div class="row_content" id="43">
     <div class="question-group">
       <p>1. Napíšte obvyklý čas vstávania Vášho dieťaťa počas týždňa:</p>
@@ -746,7 +749,7 @@
 
   <div class="row_content" id="45">
     <div class="question-group">
-      <p>3.	Dieťa sa zobudí ráno samé.</p>
+      <p>3. Dieťa sa zobudí ráno samé.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-45-option-1" name="answer-45" value="0">
@@ -764,7 +767,7 @@
 
   <div class="row_content" id="46">
     <div class="question-group">
-      <p>4.	Dieťa sa zobudí ráno pomocou budíka.</p>
+      <p>4. Dieťa sa zobudí ráno pomocou budíka.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-46-option-1" name="answer-46" value="0">
@@ -778,11 +781,11 @@
       <input type="radio" id="q-46-option-5" name="answer-46" value="4">
       <label for="q-46-option-5">VŽDY</label>
     </div>
-  </div> 
+  </div>
 
   <div class="row_content" id="47">
     <div class="question-group">
-      <p>5.	Dieťa vstáva so zlou náladou.</p>
+      <p>5. Dieťa vstáva so zlou náladou.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-47-option-1" name="answer-47" value="0">
@@ -796,11 +799,11 @@
       <input type="radio" id="q-47-option-5" name="answer-47" value="4">
       <label for="q-47-option-5">VŽDY</label>
     </div>
-  </div> 
+  </div>
 
   <div class="row_content" id="48">
     <div class="question-group">
-      <p>6.	Dieťa zobudí ráno súrodenec alebo rodič.</p>
+      <p>6. Dieťa zobudí ráno súrodenec alebo rodič.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-48-option-1" name="answer-48" value="0">
@@ -814,11 +817,11 @@
       <input type="radio" id="q-48-option-5" name="answer-48" value="4">
       <label for="q-48-option-5">VŽDY</label>
     </div>
-  </div> 
+  </div>
 
   <div class="row_content" id="49">
     <div class="question-group">
-      <p>7.	Dieťa ráno odmieta vstať / budí sa veľmi ťažko.</p>
+      <p>7. Dieťa ráno odmieta vstať / budí sa veľmi ťažko.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-49-option-1" name="answer-49" value="0">
@@ -832,11 +835,11 @@
       <input type="radio" id="q-49-option-5" name="answer-49" value="4">
       <label for="q-49-option-5">VŽDY</label>
     </div>
-  </div> 
+  </div>
 
   <div class="row_content" id="50">
     <div class="question-group">
-      <p>8.	Dieťa vstáva ráno veľmi skoro.</p>
+      <p>8. Dieťa vstáva ráno veľmi skoro.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-50-option-1" name="answer-50" value="0">
@@ -850,11 +853,11 @@
       <input type="radio" id="q-50-option-5" name="answer-50" value="4">
       <label for="q-50-option-5">VŽDY</label>
     </div>
-  </div> 
+  </div>
 
   <div class="row_content" id="51">
     <div class="question-group">
-      <p>9.	Dieťa je ráno hladné a chutí mu.</p>
+      <p>9. Dieťa je ráno hladné a chutí mu.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-51-option-1" name="answer-51" value="0">
@@ -906,11 +909,13 @@
     </div>
   </div>
 
-  <div class="section"><h2>Spánok počas dňa</h2></div>
+  <div class="section">
+    <h2>Spánok počas dňa</h2>
+  </div>
 
   <div class="row_content" id="54">
     <div class="question-group">
-      <p>1.	Dieťa zaspáva počas dňa.</p>
+      <p>1. Dieťa zaspáva počas dňa.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-54-option-1" name="answer-54" value="0">
@@ -928,7 +933,7 @@
 
   <div class="row_content" id="55">
     <div class="question-group">
-      <p>2.	Dieťa zrazu zaspí počas nejakej činnosti (napr. hra).</p>
+      <p>2. Dieťa zrazu zaspí počas nejakej činnosti (napr. hra).</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-55-option-1" name="answer-55" value="0">
@@ -946,7 +951,7 @@
 
   <div class="row_content" id="56">
     <div class="question-group">
-      <p>3.	Dieťa vyzerá unavene počas dňa.</p>
+      <p>3. Dieťa vyzerá unavene počas dňa.</p>
     </div>
     <div class="radio-group">
       <input type="radio" id="q-56-option-1" name="answer-56" value="0">
@@ -969,6 +974,10 @@
     <div class="radio-group">
       <input type="text" id="q-57" name="answer-57" placeholder="napr.: 7:00">
     </div>
+  </div>
+
+  <div class="form_buttons">
+    <p id="bad">Neodpovedali ste na všetky otázky v dotazníku.</p>
   </div>
 
   <div class="form_buttons">
@@ -996,7 +1005,10 @@
   $('#save_button').click(function (e) {
     e.preventDefault();
     checkInputs();
-    if (error) return;
+    if (error) {
+      document.getElementById('bad').style.display = 'inline';
+      return
+    }
     let formValues = {};
     $('input').each(function () {
       var el = $(this); // this ukazuje na input
@@ -1012,6 +1024,7 @@
       var el = $(this);
       formValues[el.attr('name')] = el.val();
     });
+    formValues.Id = getUrlParameter('pacient');
     console.log(formValues);
     $.ajax({
       type: 'POST',
@@ -1044,22 +1057,43 @@
   };
 
   function checkInputs() {
-    var answer, ans, a;
-    for (ans = 1; ans <= 4; ans++) {
-      answer = document.getElementsByName('answer-' + ans)[0].value.trim();
+    var answer, creator, ans, isChecked = false;
+    var textInputAns = [1, 2, 3, 4, 20, 21, 42, 43, 44, 57];
+    var radioBtnsAns = [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56];
+
+    // Check CREATOR
+    for (var i = 0; i <= 1; i++) {
+      isChecked = isChecked + document.getElementsByName('creator')[i].checked;
+    }
+    if (isChecked === 0) {
+      document.getElementById('0').style.backgroundColor = '#e4938a';
+      error = true;
+    } else {
+      document.getElementById('0').style.backgroundColor = '#2ecc71';
+    }
+
+    //Check TEXT INPUTS
+    for (ans = 0; ans < textInputAns.length; ans++) {
+      answer = document.getElementsByName('answer-' + textInputAns[ans])[0].value.trim();
       if (answer === '') {
-        document.getElementById(ans).style.backgroundColor = '#e4938a';
+        document.getElementById(textInputAns[ans]).style.backgroundColor = '#e4938a';
         error = true;
+      } else {
+        document.getElementById(textInputAns[ans]).style.backgroundColor = '#2ecc71';
       }
     };
-    for (ans = 5; ans <= 6; ans++) {
-      a = false;
+
+    // Check RADIO BTNS
+    for (ans = 0; ans < radioBtnsAns.length; ans++) {
+      isChecked = false;
       for (var i = 0; i <= 4; i++) {
-        a = a || document.getElementsByName('answer-' + ans)[i].checked;
+        isChecked = isChecked + document.getElementsByName('answer-' + radioBtnsAns[ans])[i].checked;
       }
-      if (a === false) {
-        document.getElementById(ans).style.backgroundColor = '#e4938a';
+      if (isChecked === 0) {
+        document.getElementById(radioBtnsAns[ans]).style.backgroundColor = '#e4938a';
         error = true;
+      } else {
+        document.getElementById(radioBtnsAns[ans]).style.backgroundColor = '#2ecc71';
       }
     }
   };

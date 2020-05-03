@@ -14,7 +14,7 @@ export function childrenSleepingQuestionnaire(req, res) {
 
 export function handleCHSQ(req, res) {
   const data = req.body; //ulozi data z formularu do premennej data
-  data.id = req.pacient;
+  //data.id = req.pacient;
   db.collection('patients').insertOne(data, (err) => {
     if (err) {
       console.log(err);

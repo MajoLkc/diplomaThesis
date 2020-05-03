@@ -267,7 +267,7 @@ input[type=radio] {
   display: none;
 }
 
-label {
+.row_content label {
   color: rgb(0, 67, 116);
   background-color: #E1EBF2;
   display: inline-block;
@@ -306,6 +306,11 @@ input[type=radio]:checked+label {
 
 .form_buttons {
   text-align: center;
+}
+
+.form_buttons p {
+  display: none;
+  color: #e74c3c;
 }
 
 .section {
