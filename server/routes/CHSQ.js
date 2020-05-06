@@ -13,13 +13,12 @@ export function childrenSleepingQuestionnaire(req, res) {
 }
 
 export function handleCHSQ(req, res) {
-  const data = req.body; //ulozi data z formularu do premennej data
-  //data.id = req.pacient;
+  const data = req.body;
   db.collection('patients').insertOne(data, (err) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);
-      return; //aby to nepokracovalo
+      return;
     }
     res.json(data);
   });
