@@ -6,6 +6,7 @@ import { newPatient, handleCreatePatient } from './patient.js';
 import { childrenSleepingQuestionnaire, handleCHSQ } from './CHSQ.js';
 import { morningQuestionaire, handleMorningQuestionaire } from './morningQuestionaire.js';
 import { patientList } from './patientList.js';
+import { epworthSleepingScale, handleEpworthSleepingScale } from './epworthSleepingScale';
 
 const router = express.Router();
 
@@ -23,6 +24,8 @@ router.get('/vyber_dotaznika/detsky_spankovy_dotaznik', childrenSleepingQuestion
 router.post('/vyber_dotaznika/detsky_spankovy_dotaznik', handleCHSQ);
 router.get('/vyber_dotaznika/ranny_dotaznik', morningQuestionaire);
 router.post('/vyber_dotaznika/ranny_dotaznik', handleMorningQuestionaire);
+router.get('/vyber_dotaznika/epworthska_skala_spavosti', epworthSleepingScale);
+router.post('/vyber_dotaznika/epworthska_skala_spavosti', handleEpworthSleepingScale);
 //---------------------------------------------
 
 // Rendering data from API --------------------

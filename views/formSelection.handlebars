@@ -3,16 +3,13 @@
     <button class="action_button" id="csq">Detský spánkový dotazník</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" onclick="location.href='SCR.html'">SCR</button>
+    <button class="action_button" id="">SCR</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" onclick="location.href='epworthskaSkalaSpavosti.html'">Epworth</button>
+    <button class="action_button" id="ESS">Epworthská škála spavosti</button>
   </div>
   <div class="loginBtb_container">
     <button class="action_button" id="morningQuestionaire">Ranný dotazník</button>
-  </div>
-  <div class="loginBtb_container">
-    <button class="action_button">Iný</button>
   </div>
 </div>
 
@@ -35,6 +32,10 @@
   $('#csq').click(function () {
     location.href = "/vyber_dotaznika/detsky_spankovy_dotaznik?pacient=" + getUrlParameter('pacient');
   });
+
+  $('#ESS').click(function () {
+    location.href = "/vyber_dotaznika/epworthska_skala_spavosti?pacient=" + getUrlParameter('pacient');
+  })
 
   $('#morningQuestionaire').click(function () {
     location.href = "/vyber_dotaznika/ranny_dotaznik?pacient=" + getUrlParameter('pacient');
