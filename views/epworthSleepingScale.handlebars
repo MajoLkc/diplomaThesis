@@ -5,12 +5,13 @@
     ovplyvniť.</p>
   <p>Vyberte v nasledujúcej škále číslo najvhodnejšej odpovede ku každej nižšie uvedenej situácií:</p>
   <ul>
-    <li>0 = nikdy by som nedriemal/nezaspal</li>
-    <li>1 = slabá pravdepodobnosť driemot/spánku</li>
-    <li>2 = stredná pravdepodobnosť driemot/spánku</li>
-    <li>3 = značná pravdepodobnosť driemot/spánku</li>
+    <li>NIKDY = nikdy by som nedriemal/nezaspal</li>
+    <li>NIEKEDY = slabá pravdepodobnosť driemot/spánku</li>
+    <li>ČASTO = stredná pravdepodobnosť driemot/spánku</li>
+    <li>VŽDY = značná pravdepodobnosť driemot/spánku</li>
   </ul>
 </div>
+
 <form action="/zoznam_pacientov">
   <div class="row_content" id="0">
     <div class="question-group">
@@ -29,14 +30,14 @@
       <p>1. Pri čítaní si v sede</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-1-option-1" name="ESS-answer-1" value="0">
-      <label for="q-1-option-1">ROVNAKO</label>
-      <input type="radio" id="q-1-option-2" name="ESS-answer-1" value="1">
-      <label for="q-1-option-2">LEPŠIE</label>
-      <input type="radio" id="q-1-option-3" name="ESS-answer-1" value="2">
-      <label for="q-1-option-3">HORŠIE</label>
-      <input type="radio" id="q-1-option-4" name="ESS-answer-1" value="3">
-      <label for="q-1-option-4">HORŠIE</label>
+      <input type="radio" id="q-1-option-1" name="answer-1" value="0">
+      <label for="q-1-option-1">NIKDY</label>
+      <input type="radio" id="q-1-option-2" name="answer-1" value="1">
+      <label for="q-1-option-2">NIEKEDY</label>
+      <input type="radio" id="q-1-option-3" name="answer-1" value="2">
+      <label for="q-1-option-3">ČASTO</label>
+      <input type="radio" id="q-1-option-4" name="answer-1" value="3">
+      <label for="q-1-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -45,14 +46,14 @@
       <p>2. Pri sledování televízie</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-2-option-1" name="ESS-answer-2" value="0">
-      <label for="q-2-option-1">ROVNAKO</label>
-      <input type="radio" id="q-2-option-2" name="ESS-answer-2" value="1">
-      <label for="q-2-option-2">LEPŠIE</label>
-      <input type="radio" id="q-2-option-3" name="ESS-answer-2" value="2">
-      <label for="q-2-option-3">HORŠIE</label>
-      <input type="radio" id="q-2-option-4" name="ESS-answer-2" value="3">
-      <label for="q-2-option-4">HORŠIE</label>
+      <input type="radio" id="q-2-option-1" name="answer-2" value="0">
+      <label for="q-2-option-1">NIKDY</label>
+      <input type="radio" id="q-2-option-2" name="answer-2" value="1">
+      <label for="q-2-option-2">NIEKEDY</label>
+      <input type="radio" id="q-2-option-3" name="answer-2" value="2">
+      <label for="q-2-option-3">ČASTO</label>
+      <input type="radio" id="q-2-option-4" name="answer-2" value="3">
+      <label for="q-2-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -61,14 +62,14 @@
       <p>3. Pri nečinnom sedení na verejnom mieste (v kine, v triede)</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-3-option-1" name="ESS-answer-3" value="0">
-      <label for="q-3-option-1">ROVNAKO</label>
-      <input type="radio" id="q-3-option-2" name="ESS-answer-3" value="1">
-      <label for="q-3-option-2">LEPŠIE</label>
-      <input type="radio" id="q-3-option-3" name="ESS-answer-3" value="2">
-      <label for="q-3-option-3">HORŠIE</label>
-      <input type="radio" id="q-3-option-4" name="ESS-answer-3" value="3">
-      <label for="q-3-option-4">HORŠIE</label>
+      <input type="radio" id="q-3-option-1" name="answer-3" value="0">
+      <label for="q-3-option-1">NIKDY</label>
+      <input type="radio" id="q-3-option-2" name="answer-3" value="1">
+      <label for="q-3-option-2">NIEKEDY</label>
+      <input type="radio" id="q-3-option-3" name="answer-3" value="2">
+      <label for="q-3-option-3">ČASTO</label>
+      <input type="radio" id="q-3-option-4" name="answer-3" value="3">
+      <label for="q-3-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -77,14 +78,14 @@
       <p>4. Pri hodinovej jazde v aute (bez prestávky) ako spolujazdca</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-4-option-1" name="ESS-answer-4" value="0">
-      <label for="q-4-option-1">ROVNAKO</label>
-      <input type="radio" id="q-4-option-2" name="ESS-answer-4" value="1">
-      <label for="q-4-option-2">LEPŠIE</label>
-      <input type="radio" id="q-4-option-3" name="ESS-answer-4" value="2">
-      <label for="q-4-option-3">HORŠIE</label>
-      <input type="radio" id="q-4-option-4" name="ESS-answer-4" value="3">
-      <label for="q-4-option-4">HORŠIE</label>
+      <input type="radio" id="q-4-option-1" name="answer-4" value="0">
+      <label for="q-4-option-1">NIKDY</label>
+      <input type="radio" id="q-4-option-2" name="answer-4" value="1">
+      <label for="q-4-option-2">NIEKEDY</label>
+      <input type="radio" id="q-4-option-3" name="answer-4" value="2">
+      <label for="q-4-option-3">ČASTO</label>
+      <input type="radio" id="q-4-option-4" name="answer-4" value="3">
+      <label for="q-4-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -93,14 +94,14 @@
       <p>5. Pri ležaní – odpočinku po obede, keď to okolnosti dovoľujú</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-5-option-1" name="ESS-answer-5" value="0">
-      <label for="q-5-option-1">ROVNAKO</label>
-      <input type="radio" id="q-5-option-2" name="ESS-answer-5" value="1">
-      <label for="q-5-option-2">LEPŠIE</label>
-      <input type="radio" id="q-5-option-3" name="ESS-answer-5" value="2">
-      <label for="q-5-option-3">HORŠIE</label>
-      <input type="radio" id="q-5-option-4" name="ESS-answer-5" value="3">
-      <label for="q-5-option-4">HORŠIE</label>
+      <input type="radio" id="q-5-option-1" name="answer-5" value="0">
+      <label for="q-5-option-1">NIKDY</label>
+      <input type="radio" id="q-5-option-2" name="answer-5" value="1">
+      <label for="q-5-option-2">NIEKEDY</label>
+      <input type="radio" id="q-5-option-3" name="answer-5" value="2">
+      <label for="q-5-option-3">ČASTO</label>
+      <input type="radio" id="q-5-option-4" name="answer-5" value="3">
+      <label for="q-5-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -109,14 +110,14 @@
       <p>6. Pri rozhovore v sede</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-6-option-1" name="ESS-answer-6" value="0">
-      <label for="q-6-option-1">ROVNAKO</label>
-      <input type="radio" id="q-6-option-2" name="ESS-answer-6" value="1">
-      <label for="q-6-option-2">LEPŠIE</label>
-      <input type="radio" id="q-6-option-3" name="ESS-answer-6" value="2">
-      <label for="q-6-option-3">HORŠIE</label>
-      <input type="radio" id="q-6-option-4" name="ESS-answer-6" value="3">
-      <label for="q-6-option-4">HORŠIE</label>
+      <input type="radio" id="q-6-option-1" name="answer-6" value="0">
+      <label for="q-6-option-1">NIKDY</label>
+      <input type="radio" id="q-6-option-2" name="answer-6" value="1">
+      <label for="q-6-option-2">NIEKEDY</label>
+      <input type="radio" id="q-6-option-3" name="answer-6" value="2">
+      <label for="q-6-option-3">ČASTO</label>
+      <input type="radio" id="q-6-option-4" name="answer-6" value="3">
+      <label for="q-6-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -125,14 +126,14 @@
       <p>7. V sede, v pokoji, po obede</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-7-option-1" name="ESS-answer-7" value="0">
-      <label for="q-7-option-1">ROVNAKO</label>
-      <input type="radio" id="q-7-option-2" name="ESS-answer-7" value="1">
-      <label for="q-7-option-2">LEPŠIE</label>
-      <input type="radio" id="q-7-option-3" name="ESS-answer-7" value="2">
-      <label for="q-7-option-3">HORŠIE</label>
-      <input type="radio" id="q-7-option-4" name="ESS-answer-7" value="3">
-      <label for="q-7-option-4">HORŠIE</label>
+      <input type="radio" id="q-7-option-1" name="answer-7" value="0">
+      <label for="q-7-option-1">NIKDY</label>
+      <input type="radio" id="q-7-option-2" name="answer-7" value="1">
+      <label for="q-7-option-2">NIEKEDY</label>
+      <input type="radio" id="q-7-option-3" name="answer-7" value="2">
+      <label for="q-7-option-3">ČASTO</label>
+      <input type="radio" id="q-7-option-4" name="answer-7" value="3">
+      <label for="q-7-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -141,14 +142,14 @@
       <p>8. Pri robení si domácích úloh alebo pri teste v škole</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-8-option-1" name="ESS-answer-8" value="0">
-      <label for="q-8-option-1">ROVNAKO</label>
-      <input type="radio" id="q-8-option-2" name="ESS-answer-8" value="1">
-      <label for="q-8-option-2">LEPŠIE</label>
-      <input type="radio" id="q-8-option-3" name="ESS-answer-8" value="2">
-      <label for="q-8-option-3">HORŠIE</label>
-      <input type="radio" id="q-8-option-4" name="ESS-answer-8" value="3">
-      <label for="q-8-option-4">HORŠIE</label>
+      <input type="radio" id="q-8-option-1" name="answer-8" value="0">
+      <label for="q-8-option-1">NIKDY</label>
+      <input type="radio" id="q-8-option-2" name="answer-8" value="1">
+      <label for="q-8-option-2">NIEKEDY</label>
+      <input type="radio" id="q-8-option-3" name="answer-8" value="2">
+      <label for="q-8-option-3">ČASTO</label>
+      <input type="radio" id="q-8-option-4" name="answer-8" value="3">
+      <label for="q-8-option-4">VŽDY</label>
     </div>
   </div>
 
@@ -212,6 +213,7 @@
     });
     formValues.Id = getUrlParameter('pacient');
     formValues.creationDate = $.date(new Date());
+    formValues.questionaireName = 'ESS';
     console.log(formValues);
     $.ajax({
       type: 'POST',
@@ -262,7 +264,7 @@
     for (ans = 0; ans < radioBtnsAns.length; ans++) {
       isChecked = false;
       for (var i = 0; i <= 3; i++) {
-        isChecked = isChecked + document.getElementsByName('ESS-answer-' + radioBtnsAns[ans])[i].checked;
+        isChecked = isChecked + document.getElementsByName('answer-' + radioBtnsAns[ans])[i].checked;
       }
       if (isChecked === 0) {
         document.getElementById(radioBtnsAns[ans]).style.backgroundColor = '#e4938a';

@@ -1042,6 +1042,7 @@
     });
     formValues.Id = getUrlParameter('pacient');
     formValues.creationDate = $.date(new Date());
+    formValues.questionaireName = 'CSQ';
     console.log(formValues);
     $.ajax({
       type: 'POST',

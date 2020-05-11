@@ -3,7 +3,7 @@
     <button class="action_button" id="csq">Detský spánkový dotazník</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="">SCR</button>
+    <button class="action_button" id="OSAS">Syndróm OSA</button>
   </div>
   <div class="loginBtb_container">
     <button class="action_button" id="ESS">Epworthská škála spavosti</button>
@@ -33,9 +33,13 @@
     location.href = "/vyber_dotaznika/detsky_spankovy_dotaznik?pacient=" + getUrlParameter('pacient');
   });
 
+  $('#OSAS').click(function () {
+    location.href = "/vyber_dotaznika/syndrom_OSA?pacient=" + getUrlParameter('pacient');
+  });
+
   $('#ESS').click(function () {
     location.href = "/vyber_dotaznika/epworthska_skala_spavosti?pacient=" + getUrlParameter('pacient');
-  })
+  });
 
   $('#morningQuestionaire').click(function () {
     location.href = "/vyber_dotaznika/ranny_dotaznik?pacient=" + getUrlParameter('pacient');

@@ -5,8 +5,10 @@ import { menu, formSelection } from './menu.js';
 import { newPatient, handleCreatePatient } from './patient.js';
 import { childrenSleepingQuestionnaire, handleCHSQ } from './CHSQ.js';
 import { morningQuestionaire, handleMorningQuestionaire } from './morningQuestionaire.js';
-import { patientList } from './patientList.js';
+import { patientList, handlePatient } from './patientList.js';
 import { epworthSleepingScale, handleEpworthSleepingScale } from './epworthSleepingScale';
+import { syndromeOSA, handleSyndromeOSA } from './syndromeOSA.js';
+import { patientInfo } from './patientInfo.js';
 
 const router = express.Router();
 
@@ -26,6 +28,11 @@ router.get('/vyber_dotaznika/ranny_dotaznik', morningQuestionaire);
 router.post('/vyber_dotaznika/ranny_dotaznik', handleMorningQuestionaire);
 router.get('/vyber_dotaznika/epworthska_skala_spavosti', epworthSleepingScale);
 router.post('/vyber_dotaznika/epworthska_skala_spavosti', handleEpworthSleepingScale);
+router.get('/vyber_dotaznika/syndrom_OSA', syndromeOSA);
+router.post('/vyber_dotaznika/syndrom_OSA', handleSyndromeOSA);
+router.post('/zoznam_pacientov', handlePatient);
+router.get('/informacie_o_pacientovi', handlePatient);
+
 //---------------------------------------------
 
 // Rendering data from API --------------------

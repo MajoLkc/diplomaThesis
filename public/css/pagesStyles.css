@@ -243,7 +243,6 @@ button[disabled]{
 #patient_list_container {
   float: right;
   width: 75%;
-  height: 100%;
 }
 
 /******************************************************************************/

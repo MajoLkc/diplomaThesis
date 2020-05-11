@@ -1,6 +1,25 @@
+<style>
+  .borders {
+    background-color: #ACCEE5;
+    text-align: center;
+    border: 0;
+  }
+
+  #patient_list_container th {
+    width: 150px;
+  }
+
+  .table_btn {
+    background-color: white;
+    border: 1px solid rgb(0, 67, 116);
+    border-radius: 2px;
+    color: rgb(0, 67, 116);
+  }
+</style>
+
 <div id="filter_container">
   <div id="filter_position">
-    <form>
+    <form method="POST">
       <div>
         <label>FILTER</label>
       </div>
@@ -30,76 +49,66 @@
           <input type="date">
         </div>
       </div>
-
+      <div>
+        <button class="action_button_2">Potvrdiť</button>
+      </div>
     </form>
+    <div>
+      <button class="action_button_2">Generuj Excel</button>
+    </div>
   </div>
 </div>
 
 <div id="patient_list_container">
-  <div>
-    <table>
-      <tr class="borders">
-        <th>Priezvisko</th>
-        <th>Meno</th>
-        <th>Dotazníky</th>
-        <th>Posledná aktualizácia</th>
-        <th>Možnosti</th>
-      </tr>
+  <table>
+    <tr class="borders">
+      <th>Meno</th>
+      <th>Priezvisko</th>
+      <th>Dátom narodenia</th>
+      <th>Možnosti</th>
+    </tr>
 
-      <tr>
-        <td>Anonym</td>
-        <td></td>
-        <td>Nejakyyyy</td>
-        <td>5.6.2018</td>
-        <td>
-          <button class="table_btn">Zobraziť</button>
-          <button class="table_btn">Upraviť</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Mrkvička</td>
-        <td></td>
-        <td>henten, tamten</td>
-        <td>22.5.2017</td>
-        <td>
-          <button class="table_btn">Zobraziť</button>
-          <button class="table_btn">Upraviť</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Cerveny</td>
-        <td></td>
-        <td>jeden</td>
-        <td>11.11.2016</td>
-        <td>
-          <button class="table_btn">Zobraziť</button>
-          <button class="table_btn">Upraviť</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Zeleny</td>
-        <td></td>
-        <td>dva, tri, styri</td>
-        <td>5.8.2018</td>
-        <td>
-          <button class="table_btn">Zobraziť</button>
-          <button class="table_btn">Upraviť</button>
-        </td>
-      </tr>
-
-      <tr>
-        <td>Zlty</td>
-        <td></td>
-        <td>Jeden iba</td>
-        <td>6.12.2019</td>
-        <td>
-          <button class="table_btn">Zobraziť</button>
-          <button class="table_btn">Upraviť</button>
-        </td>
-      </tr>
-    </table>
-  </div>
+    {{#each informations}}
+    <tr id="{{@index}}">
+      <td id="patientName-{{@index}}">{{this.name}}</td>
+      <td id="patientSurname-{{@index}}">{{this.surname}}</td>
+      <td id="patientDate-{{@index}}">{{this.birthDate}}</td>
+      <td>
+        <button class="table_btn" id="showInfo">Zobraziť informácie</button>
+        <button class="table_btn" id="showQuestionaire">Zobraziť dotazníky</button>
+        <button class="table_btn" id="updateInfo">Upraviť informácie</button>
+        <button class="table_btn" id="updateQuestionaire">Upraviť dotazníky</button>
+      </td>
+    </tr>
+    {{/each}}
+  </table>
 </div>
+
+<script>
+  $("#showInfo").click(function () {
+    var rowID = this.parentNode.parentNode.id;
+    var tablePatientInfo = {
+      name: document.getElementById('patientName-' + rowID).textContent,
+      surname: document.getElementById('patientSurname-' + rowID).textContent,
+      birthDate: document.getElementById('patientDate-' + rowID).textContent
+    };
+    console.log(tablePatientInfo);
+    $.ajax({
+      type: 'POST',
+      url: '/zoznam_pacientov',
+      data: JSON.stringify(tablePatientInfo),
+      contentType: 'application/json',
+      dataType: 'json',
+      success: function (data, status) {
+        window.location = '/informacie_o_pacientovi';
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    })
+  });
+
+  $("#showQuestionaire").click(function () {
+    location.href = '/vyber_dotaznika';
+  })
+</script>

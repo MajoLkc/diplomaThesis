@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb';
 const url = 'mongodb://localhost:27017';
 
 // Database Name
-const dbName = 'patients';
+const dbName = 'sleepingLaboratory';
 
 // eslint-disable-next-line
 let db;

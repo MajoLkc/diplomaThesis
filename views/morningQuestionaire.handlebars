@@ -151,6 +151,7 @@
     });
     formValues.Id = getUrlParameter('pacient');
     formValues.creationDate = $.date(new Date());
+    formValues.questionaireName = 'morningQuestionaire';
     console.log(formValues);
     $.ajax({
       type: 'POST',
