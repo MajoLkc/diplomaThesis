@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { db } from '../db.js';
 
-const NEW_PATIENT_VIEW = 'newPatient';
+const NEW_PATIENT_VIEW = 'patient';
 
 export function newPatient(req, res) {
   if (req.user) {

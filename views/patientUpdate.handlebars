@@ -2,37 +2,37 @@
   <form action="/vyber_dotaznika" method="post" id="patientForm">
     <div class="form-control">
       <label>Meno:</label>
-      <input type="text" id="name">
+      <input type="text" id="name" value="{{patientName}}">
       <p>Nezadali ste meno pacienta.</p>
     </div>
 
     <div class="form-control">
       <label>Priezvisko:</label>
-      <input type="text" id="surname">
+      <input type="text" id="surname" value="{{patientSurname}}">
       <p>Nezadali ste priezvisko pacienta.</p>
     </div>
 
     <div class="form-control">
       <label>Dátum narodenia:</label>
-      <input type="date" id="birthDate" pattern="\d{2}/\m{2}/\y{4}">
+      <input type="date" id="birthDate" value="{{patientBirthDate}}" pattern="\d{2}/\m{2}/\y{4}">
       <p>Nezadali ste dátum narodenia pacienta.</p>
     </div>
 
     <div class="form-control">
       <label>Výška:</label>
-      <input type="number" id="height">
+      <input type="number" id="height" value="{{patientHeight}}">
       <p>Nezadali ste výšku pacienta.</p>
     </div>
 
     <div class="form-control">
       <label>Váha:</label>
-      <input type="number" id="weight">
+      <input type="number" id="weight" value="{{patientWeight}}">
       <p>Nezadali ste váhu pacienta.</p>
     </div>
 
     <div class="form-control">
       <label>Obvod krku:</label>
-      <input type="number" id="neckCircuit">
+      <input type="number" id="neckCircuit" value="{{patientNeckCircuit}}">
       <p>Nezadali ste obvod krku pacienta.</p>
     </div>
 
@@ -70,12 +70,12 @@
     console.log(formValues);
     $.ajax({
       type: 'POST',
-      url: '/registracia_pacienta',
+      url: '/uprava_pacienta',
       data: JSON.stringify(formValues),
       contentType: 'application/json',
       dataType: 'json',
       success: function (data, status) {
-        window.location = '/vyber_dotaznika?pacient=' + data.id;
+        window.location = '/zoznam_pacientov';
       },
       error: function(error) {
         console.log(error);

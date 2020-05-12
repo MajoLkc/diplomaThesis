@@ -5,10 +5,11 @@ import { menu, formSelection } from './menu.js';
 import { newPatient, handleCreatePatient } from './patient.js';
 import { childrenSleepingQuestionnaire, handleCHSQ } from './CHSQ.js';
 import { morningQuestionaire, handleMorningQuestionaire } from './morningQuestionaire.js';
-import { patientList, handlePatient } from './patientList.js';
+import { patientList, filterPatient } from './patientList.js';
 import { epworthSleepingScale, handleEpworthSleepingScale } from './epworthSleepingScale';
 import { syndromeOSA, handleSyndromeOSA } from './syndromeOSA.js';
 import { patientInfo } from './patientInfo.js';
+import { updatePatient, handlePatientUpdate } from './patientUpdate';
 
 const router = express.Router();
 
@@ -30,8 +31,11 @@ router.get('/vyber_dotaznika/epworthska_skala_spavosti', epworthSleepingScale);
 router.post('/vyber_dotaznika/epworthska_skala_spavosti', handleEpworthSleepingScale);
 router.get('/vyber_dotaznika/syndrom_OSA', syndromeOSA);
 router.post('/vyber_dotaznika/syndrom_OSA', handleSyndromeOSA);
-router.post('/zoznam_pacientov', handlePatient);
-router.get('/informacie_o_pacientovi', handlePatient);
+// router.post('/zoznam_pacientov', handlePatient);
+router.get('/informacie_o_pacientovi', patientInfo);
+router.get('/uprava_pacienta', updatePatient);
+router.post('/uprava_pacienta', handlePatientUpdate);
+router.post('/zoznam_pacientov', filterPatient);
 
 //---------------------------------------------
 
