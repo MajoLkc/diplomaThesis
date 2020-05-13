@@ -35,7 +35,6 @@ export function handlePatientUpdate(req, res) {
       neckCircuit: req.body.neckCircuit
     };
     const url = req.originalUrl;
-    console.log(url);
     const param = url.split('=');
     const data = { id: param[1] };
     db.collection('patients').findOneAndUpdate(data, { $set: updatedPatient }, (err) => {

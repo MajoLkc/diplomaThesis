@@ -11,10 +11,12 @@
       <p>Dotazník vypĺňal: </p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="creator-1" name="creator" value="Rodič">
-      <label for="creator-1">Rodič</label>
-      <input type="radio" id="creator-2" name="creator" value="Dieťa">
-      <label for="creator-2">Dieťa</label>
+      <input type="radio" id="creator-1" name="MQ-creator" value="Doktor">
+      <label for="creator-1">Doktor</label>
+      <input type="radio" id="creator-2" name="MQ-creator" value="Rodič">
+      <label for="creator-2">Rodič</label>
+      <input type="radio" id="creator-3" name="MQ-creator" value="Dieťa">
+      <label for="creator-3">Dieťa</label>
     </div>
   </div>
 
@@ -23,11 +25,11 @@
       <p>1. V porovnaní s obvyklým spánkom doma ste (Vaše dieťa) spali:</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-1-option-1" name="answer-1" value="Rovnako">
+      <input type="radio" id="q-1-option-1" name="MQ-answer-1" value="Rovnako">
       <label for="q-1-option-1">ROVNAKO</label>
-      <input type="radio" id="q-1-option-2" name="answer-1" value="Lepšie">
+      <input type="radio" id="q-1-option-2" name="MQ-answer-1" value="Lepšie">
       <label for="q-1-option-2">LEPŠIE</label>
-      <input type="radio" id="q-1-option-3" name="answer-1" value="Horšie">
+      <input type="radio" id="q-1-option-3" name="MQ-answer-1" value="Horšie">
       <label for="q-1-option-3">HORŠIE</label>
     </div>
   </div>
@@ -37,7 +39,7 @@
       <p>2. Ak ste spali horšie, uveďte prosím dôvod:</p>
     </div>
     <div class="radio-group">
-      <input type="text" id="q-2" name="answer-2">
+      <input type="text" id="q-2" name="MQ-answer-2">
     </div>
   </div>
 
@@ -46,11 +48,11 @@
       <p>3. V porovnaní s obvyklým spánkom bol Váš (Vášho dieťaťa) spánok:</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-3-option-1" name="answer-3" value="Rovnako hlboký">
+      <input type="radio" id="q-3-option-1" name="MQ-answer-3" value="Rovnako hlboký">
       <label for="q-3-option-1">ROVNAKO HLBOKÝ</label>
-      <input type="radio" id="q-3-option-2" name="answer-3" value="Plytší">
+      <input type="radio" id="q-3-option-2" name="MQ-answer-3" value="Plytší">
       <label for="q-3-option-2">PLYTŠÍ</label>
-      <input type="radio" id="q-3-option-3" name="answer-3" value="Hlbší">
+      <input type="radio" id="q-3-option-3" name="MQ-answer-3" value="Hlbší">
       <label for="q-3-option-3">HLBŠÍ</label>
     </div>
   </div>
@@ -60,9 +62,9 @@
       <p>4. Trvalo Vám (Vášmu dieťaťu) zaspatie dlhšie ako obvykle?</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-4-option-1" name="answer-4" value="áno">
+      <input type="radio" id="q-4-option-1" name="MQ-answer-4" value="áno">
       <label for="q-4-option-1">ÁNO</label>
-      <input type="radio" id="q-4-option-2" name="answer-4" value="nie">
+      <input type="radio" id="q-4-option-2" name="MQ-answer-4" value="nie">
       <label for="q-4-option-2">NIE</label>
     </div>
   </div>
@@ -72,9 +74,9 @@
       <p>5. Budili ste sa (Vaše dieťa) počas noci častejšie ako obvykle?</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-5-option-1" name="answer-5" value="áno">
+      <input type="radio" id="q-5-option-1" name="MQ-answer-5" value="áno">
       <label for="q-5-option-1">ÁNO</label>
-      <input type="radio" id="q-5-option-2" name="answer-5" value="nie">
+      <input type="radio" id="q-5-option-2" name="MQ-answer-5" value="nie">
       <label for="q-5-option-2">NIE</label>
     </div>
   </div>
@@ -84,9 +86,9 @@
       <p>6. Trvalo Vám (Vášmu dieťaťu) dlhšie kým ste zaspali po nočnom prebudení?</p>
     </div>
     <div class="radio-group">
-      <input type="radio" id="q-6-option-1" name="answer-6" value="áno">
+      <input type="radio" id="q-6-option-1" name="MQ-answer-6" value="áno">
       <label for="q-6-option-1">ÁNO</label>
-      <input type="radio" id="q-6-option-2" name="answer-6" value="nie">
+      <input type="radio" id="q-6-option-2" name="MQ-answer-6" value="nie">
       <label for="q-6-option-2">NIE</label>
     </div>
   </div>
@@ -149,7 +151,7 @@
       var el = $(this);
       formValues[el.attr('name')] = el.val();
     });
-    formValues.creationDate = $.date(new Date());
+    formValues.MQcreationDate = $.date(new Date());
     console.log(formValues);
     $.ajax({
       type: 'POST',
@@ -188,8 +190,9 @@
     radioBtnsAns3 = [1, 3,];
     radioBtnsAns2 = [4, 5, 6];
 
-    for (var i = 0; i <= 1; i++) {
-      isChecked = isChecked + document.getElementsByName('creator')[i].checked;
+    // check CREATOR
+    for (var i = 0; i <= 2; i++) {
+      isChecked = isChecked + document.getElementsByName('MQ-creator')[i].checked;
     }
     if (isChecked === 0) {
       document.getElementById('0').style.backgroundColor = '#e4938a';
@@ -198,10 +201,11 @@
       document.getElementById('0').style.backgroundColor = '#2ecc71';
     }
 
+    // check RADIO INPUTS (3)
     for (ans = 0; ans < radioBtnsAns3.length; ans++) {
       isChecked = false;
       for (var i = 0; i <= 2; i++) {
-        isChecked = isChecked + document.getElementsByName('answer-' + radioBtnsAns3[ans])[i].checked;
+        isChecked = isChecked + document.getElementsByName('MQ-answer-' + radioBtnsAns3[ans])[i].checked;
       }
       if (isChecked === 0) {
         document.getElementById(radioBtnsAns3[ans]).style.backgroundColor = '#e4938a';
@@ -211,11 +215,11 @@
       }
     }
 
-
+    // check RADIO INPUTS (2)
     for (ans = 0; ans < radioBtnsAns2.length; ans++) {
       isChecked = false;
       for (var i = 0; i <= 1; i++) {
-        isChecked = isChecked + document.getElementsByName('answer-' + radioBtnsAns2[ans])[i].checked;
+        isChecked = isChecked + document.getElementsByName('MQ-answer-' + radioBtnsAns2[ans])[i].checked;
       }
       if (isChecked === 0) {
         document.getElementById(radioBtnsAns2[ans]).style.backgroundColor = '#e4938a';
@@ -225,5 +229,4 @@
       }
     }
   }
-
 </script>
