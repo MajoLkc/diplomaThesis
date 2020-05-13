@@ -1,7 +1,9 @@
 <style>
   .borders {
-    background-color: #ACCEE5;
-    text-align: center;
+    background-color: rgb(0, 67, 116);
+    text-align: left;
+    color: white;
+    height: 30px;
     border: 0;
   }
 
@@ -9,21 +11,45 @@
     width: 150px;
   }
 
-  .table_btn {
+  #list button {
     background-color: white;
     border: 1px solid rgb(0, 67, 116);
     border-radius: 2px;
     color: rgb(0, 67, 116);
+    width: 150px;
+    font-weight: bold;
+  }
+
+  #list td {
+    padding-left: 10px;
+  }
+
+  #list th {
+    padding-left: 10px;
   }
 
   .hidden {
     display: none;
   }
+
+  #list {
+    border-collapse: collapse;
+  }
+
+  #list tr {
+    border-bottom: 1px solid rgb(0, 67, 116);
+  }
+
+  #filter {
+    border: 2px solid rgb(0, 67, 116);
+    border-radius: 5px;
+    margin-right: 15px;
+  }
 </style>
 
 <div id="filter_container">
   <div id="filter_position">
-    <form>
+    <form id="filter">
       <div>
         <label>FILTER</label>
       </div>
@@ -64,7 +90,7 @@
 </div>
 
 <div id="patient_list_container">
-  <table>
+  <table id="list">
     <tr class="borders">
       <th>Meno</th>
       <th>Priezvisko</th>
@@ -81,9 +107,9 @@
       <td id="patientID-{{@index}}" class="hidden">{{this.ID}}</td>
       <td>
         <button class="showInfo">Zobraziť informácie</button>
-        <button class="showQuestionaire">Zobraziť dotazníky</button>
+        <button class="showQuestionaires">Zobraziť dotazníky</button>
         <button class="updateInfo">Upraviť informácie</button>
-        <button class="updateQuestionaire">Upraviť dotazníky</button>
+        <button class="updateQuestionaires">Upraviť dotazníky</button>
       </td>
     </tr>
     {{/each}}
@@ -91,19 +117,43 @@
 </div>
 
 <script>
+  var numberOfRows = $('table tr').length;
+
+  for (var rowNumber = 1; rowNumber < numberOfRows - 1; rowNumber++) {
+    if (rowNumber % 2 == 0) {
+      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
+    } else {
+      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
+    }
+  }
+
+  var getPatientId = function getPatientId(element) {
+    var rowID = element.parentNode.parentNode.id;
+    var patientId = document.getElementById('patientID-' + rowID).textContent;
+    return patientId;
+  };
+
   $(".showInfo").each(function () {
     $(this).click(function () {
-      var rowID = this.parentNode.parentNode.id;
-      var patientId = document.getElementById('patientID-' + rowID).textContent;
-      window.location = '/informacie_o_pacientovi?pacient=' + patientId;
+      window.location = '/informacie_o_pacientovi?pacient=' + getPatientId(this);
     })
   });
 
   $(".updateInfo").each(function () {
     $(this).click(function () {
-      var rowID = this.parentNode.parentNode.id;
-      var patientId = document.getElementById('patientID-' + rowID).textContent;
-      window.location = '/uprava_pacienta?pacient=' + patientId;
+      window.location = '/uprava_pacienta?pacient=' + getPatientId(this);
     })
   });
+
+  $(".showQuestionaires").each(function () {
+    $(this).click(function () {
+      window.location = '/zoznam_dotaznikov_pacienta?pacient=' + getPatientId(this);
+    })
+  });
+
+  $(".updateQuestionaires").each(function () {
+    $(this).click(function () {
+      window.location = '/vyber_dotaznika?pacient=' + getPatientId(this);
+    })
+  })
 </script>

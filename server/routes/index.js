@@ -10,6 +10,7 @@ import { epworthSleepingScale, handleEpworthSleepingScale } from './epworthSleep
 import { syndromeOSA, handleSyndromeOSA } from './syndromeOSA.js';
 import { patientInfo } from './patientInfo.js';
 import { updatePatient, handlePatientUpdate } from './patientUpdate';
+import { showQuestionaire } from './showQuestionaire.js';
 
 const router = express.Router();
 
@@ -36,6 +37,7 @@ router.post('/vyber_dotaznika/syndrom_OSA', handleSyndromeOSA);
 router.get('/informacie_o_pacientovi', patientInfo);
 router.get('/uprava_pacienta', updatePatient);
 router.post('/uprava_pacienta', handlePatientUpdate);
+router.get('/zoznam_dotaznikov_pacienta', showQuestionaire);
 
 //---------------------------------------------
 
