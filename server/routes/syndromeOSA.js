@@ -13,8 +13,11 @@ export function syndromeOSA(req, res) {
 }
 
 export function handleSyndromeOSA(req, res) {
-  const data = req.body;
-  db.collection('patients').insertOne(data, (err) => {
+  const updatedPatient = req.body;
+  const url = req.originalUrl;
+  const param = url.split('=');
+  const data = { id: param[1] };
+  db.collection('patients').findOneAndUpdate(data, { $set: updatedPatient }, (err) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);

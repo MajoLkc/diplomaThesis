@@ -1,11 +1,17 @@
 import { db } from '../db.js';
-// import { handlePatient } from './patientList.js';
 
 const PATIENT_INFO_VIEW = 'patientInfo';
-const data = { name: 'Majo' };
+
+function splitStr(str) {
+  // Function to split string
+  return str.split('=');
+}
 
 export function patientInfo(req, res) {
   if (req.user) {
+    const url = req.originalUrl;
+    const id = splitStr(url);
+    const data = { id: id[1] };
     db.collection('patients').findOne(data, (err, doc) => {
       if (err) throw err;
       const context = {

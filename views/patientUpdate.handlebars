@@ -1,3 +1,15 @@
+<style>
+  .back_to_list a {
+    text-decoration: none;
+    color: #3686BE;
+    margin-left: 30px;
+  }
+</style>
+
+<div class="back_to_list">
+  <a href="/zoznam_pacientov">Späť na zoznam pacientov</a>
+</div>
+
 <div id="registration_container">
   <form action="/vyber_dotaznika" method="post" id="patientForm">
     <div class="form-control">
@@ -37,7 +49,7 @@
     </div>
 
     <div>
-      <button class="action_button_2" id="reset_button" type="reset">Vymazať</button>
+      <button class="action_button_2" id="reset_button" type="reset">Obnoviť</button>
       <button class="action_button_2" id="save_button" type="submit">Uložiť</button>
     </div>
   </form>
@@ -70,7 +82,7 @@
     console.log(formValues);
     $.ajax({
       type: 'POST',
-      url: '/uprava_pacienta',
+      url: '/uprava_pacienta?pacient=' + getUrlParameter('pacient'),
       data: JSON.stringify(formValues),
       contentType: 'application/json',
       dataType: 'json',
@@ -82,6 +94,21 @@
       }
     })
   });
+
+  var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=');
+
+      if (sParameterName[0] === sParam) {
+        return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+      }
+    }
+  };
 
   function checkInputs() {
 

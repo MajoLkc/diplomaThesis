@@ -1,10 +1,12 @@
 import { db } from '../db.js';
 
 const PATIENT_UPDATE_VIEW = 'patientUpdate';
-const data = { name: 'Majo' };
 
 export function updatePatient(req, res) {
   if (req.user) {
+    const url = req.originalUrl;
+    const param = url.split('=');
+    const data = { id: param[1] };
     db.collection('patients').findOne(data, (err, doc) => {
       if (err) throw err;
       const context = {
@@ -32,6 +34,10 @@ export function handlePatientUpdate(req, res) {
       weight: req.body.weight,
       neckCircuit: req.body.neckCircuit
     };
+    const url = req.originalUrl;
+    console.log(url);
+    const param = url.split('=');
+    const data = { id: param[1] };
     db.collection('patients').findOneAndUpdate(data, { $set: updatedPatient }, (err) => {
       if (err) {
         console.log(err);

@@ -217,7 +217,7 @@
     console.log(formValues);
     $.ajax({
       type: 'POST',
-      url: '/vyber_dotaznika/epworthska_skala_spavosti',
+      url: '/vyber_dotaznika/epworthska_skala_spavosti?pacient=' + getUrlParameter('pacient'),
       data: JSON.stringify(formValues),
       contentType: 'application/json',
       dataType: 'json',

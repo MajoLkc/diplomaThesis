@@ -1040,13 +1040,11 @@
       var el = $(this);
       formValues[el.attr('name')] = el.val();
     });
-    formValues.Id = getUrlParameter('pacient');
     formValues.creationDate = $.date(new Date());
-    formValues.questionaireName = 'CSQ';
     console.log(formValues);
     $.ajax({
       type: 'POST',
-      url: '/vyber_dotaznika/detsky_spankovy_dotaznik',
+      url: '/vyber_dotaznika/detsky_spankovy_dotaznik?pacient=' + getUrlParameter('pacient'),
       data: JSON.stringify(formValues),
       contentType: 'application/json',
       dataType: 'json',
