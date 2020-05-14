@@ -1,18 +1,18 @@
 import { db } from '../db.js';
 
-const EPWORTH_SLEEPING_SCALE = 'epworthSleepingScale';
+const CHILDREN_SLEEPING_QUESTIONNAIRE = 'CSQ';
 
-export function epworthSleepingScale(req, res) {
+export function childrenSleepingQuestionnaire(req, res) {
   if (req.user) {
     const context = {
-      pageTitle: 'Epworthská škála spavosti',
+      pageTitle: 'Detský spánkový dotazník',
       noLogout: false
     };
-    res.render(EPWORTH_SLEEPING_SCALE, context);
+    res.render(CHILDREN_SLEEPING_QUESTIONNAIRE, context);
   }
 }
 
-export function handleEpworthSleepingScale(req, res) {
+export function handleCHSQ(req, res) {
   const updatedPatient = req.body;
   const url = req.originalUrl;
   const param = url.split('=');

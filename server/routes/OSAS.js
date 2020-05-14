@@ -1,18 +1,18 @@
 import { db } from '../db.js';
 
-const MORNING_QUESTIONAIRE = 'morningQuestionaire';
+const SYNDROME_OSA = 'OSAS';
 
-export function morningQuestionaire(req, res) {
+export function syndromeOSA(req, res) {
   if (req.user) {
     const context = {
-      pageTitle: 'Ranný dotazník',
+      pageTitle: 'Syndróm OSA',
       noLogout: false
     };
-    res.render(MORNING_QUESTIONAIRE, context);
+    res.render(SYNDROME_OSA, context);
   }
 }
 
-export function handleMorningQuestionaire(req, res) {
+export function handleSyndromeOSA(req, res) {
   const updatedPatient = req.body;
   const url = req.originalUrl;
   const param = url.split('=');

@@ -4,11 +4,6 @@
     color: #3686BE;
     margin-left: 30px;
   }
-
-  #notAllowed {
-    background-color: #E1EBF2;
-    cursor: not-allowed;
-  }
 </style>
 
 <div class="back_to_list">
@@ -17,15 +12,19 @@
 
 <div class="login_container">
   <div class="loginBtn_container">
-    <button class="action_button" id="{{CSQ}}">Detský spánkový dotazník</button>
+    <button class="action_button" id="showCSQ" {{CSQ}} >Detský spánkový dotazník</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="{{OSAS}}">Syndróm OSA</button>
+    <button class="action_button" id="showOSAS" {{OSAS}}>Syndróm OSA</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="{{ESS}}">Epworthská škála spavosti</button>
+    <button class="action_button" id="showESS" {{ESS}}>Epworthská škála spavosti</button>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="{{MQ}}">Ranný dotazník</button>
+    <button class="action_button" id="showMQ" {{MQ}}>Ranný dotazník</button>
   </div>
 </div>
+
+<script>
+  
+</script>

@@ -1,10 +1,10 @@
 import { db } from '../db.js';
 
 const SHOW_QUESTIONAIRE_VIEW = 'showQuestionaire';
-let noCSQ = null;
-let noOSAS = null;
-let noESS = null;
-let noMQ = null;
+let noCSQ;
+let noOSAS;
+let noESS;
+let noMQ;
 
 export function showQuestionaire(req, res) {
   if (req.user) {
@@ -17,10 +17,10 @@ export function showQuestionaire(req, res) {
       noOSAS = null;
       noESS = null;
       noMQ = null;
-      if (doc.CSQcreationDate === undefined) noCSQ = 'notAllowed';
-      if (doc.OSAScreationDate === undefined) noOSAS = 'notAllowed';
-      if (doc.ESScreationDate === undefined) noESS = 'notAllowed';
-      if (doc.MQcreationDate === undefined) noMQ = 'notAllowed';
+      if (doc.CSQcreationDate === undefined) noCSQ = 'disabled';
+      if (doc.OSAScreationDate === undefined) noOSAS = 'disabled';
+      if (doc.ESScreationDate === undefined) noESS = 'disabled';
+      if (doc.MQcreationDate === undefined) noMQ = 'disabled';
       const context = {
         pageTitle: 'Zoznam dotazníkov pacienta',
         CSQ: noCSQ,
