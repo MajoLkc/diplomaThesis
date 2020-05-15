@@ -11,6 +11,10 @@ import { syndromeOSA, handleSyndromeOSA } from './OSAS.js';
 import { patientInfo } from './patientInfo.js';
 import { updatePatient, handlePatientUpdate } from './patientUpdate';
 import { showQuestionaire } from './showQuestionaire.js';
+import { CSQresults } from './CSQresults.js';
+import { ESSresults } from './ESSresults.js';
+import { MQresults } from './MQresults.js';
+import { OSASresults } from './OSASresults.js';
 
 const router = express.Router();
 
@@ -38,6 +42,10 @@ router.get('/informacie_o_pacientovi', patientInfo);
 router.get('/uprava_pacienta', updatePatient);
 router.post('/uprava_pacienta', handlePatientUpdate);
 router.get('/zoznam_dotaznikov_pacienta', showQuestionaire);
+router.get('/zoznam_dotaznikov_pacienta/detsky_spankovy_dotaznik', CSQresults);
+router.get('/zoznam_dotaznikov_pacienta/epworthska_skala_spavosti', ESSresults);
+router.get('/zoznam_dotaznikov_pacienta/ranny_dotaznik', MQresults);
+router.get('/zoznam_dotaznikov_pacienta/syndrom_OSA', OSASresults);
 
 //---------------------------------------------
 

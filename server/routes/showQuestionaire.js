@@ -17,10 +17,10 @@ export function showQuestionaire(req, res) {
       noOSAS = null;
       noESS = null;
       noMQ = null;
-      if (doc.CSQcreationDate === undefined) noCSQ = 'disabled';
-      if (doc.OSAScreationDate === undefined) noOSAS = 'disabled';
-      if (doc.ESScreationDate === undefined) noESS = 'disabled';
-      if (doc.MQcreationDate === undefined) noMQ = 'disabled';
+      if (doc.CSQ_creationDate === undefined) noCSQ = 'disabled';
+      if (doc.OSAS_creationDate === undefined) noOSAS = 'disabled';
+      if (doc.ESS_creationDate === undefined) noESS = 'disabled';
+      if (doc.MQ_creationDate === undefined) noMQ = 'disabled';
       const context = {
         pageTitle: 'Zoznam dotazníkov pacienta',
         CSQ: noCSQ,

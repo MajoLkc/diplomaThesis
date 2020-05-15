@@ -1,0 +1,187 @@
+<div class="qustionaire_info">
+  <h3>{{patientName}} {{patientSurname}}</h3>
+  <h4>Dátum vyplnenia dotazníka: {{creationDate}}</h4>
+</div>
+
+<div class="row_content" id="0">
+  <div class="question-group">
+    <p>Dotazník vypĺňal: </p>
+  </div>
+  <div class="radio-group">
+    {{creator}}
+  </div>
+</div>
+
+<div class="section">
+  <h2>Nos</h2>
+</div>
+
+<div class="row_content" id="1">
+  <div class="question-group">
+    <p>1. Derivácia nosovej prepážky:</p>
+  </div>
+  <div class="radio-group">
+    {{answer1}}
+  </div>
+</div>
+
+<div class="row_content" id="2">
+  <div class="question-group">
+    <p>2. Dýchanie ústami:</p>
+  </div>
+  <div class="radio-group">
+    {{answer2}}
+  </div>
+</div>
+
+<div class="row_content" id="3">
+  <div class="question-group">
+    <p>3. Hypotónia nosovej chrupavky:</p>
+  </div>
+  <div class="radio-group">
+    {{answer3}}
+  </div>
+</div>
+
+<div class="row_content" id="4">
+  <div class="question-group">
+    <p>4. Hypotónia musculus orbicularis oris sup. et inf.:</p>
+  </div>
+  <div class="radio-group">
+    {{answer4}}
+  </div>
+</div>
+
+<div class="row_content" id="5">
+  <div class="question-group">
+    <p>5. Priechodnosť nosovej dutiny (hodnotenie pomocou fyzikálneho vyšetrenia – pacient sa 3 krát nadýchne a
+      vydýchne kým lekár komprimuje najskôr pravú, potom ľavú nosovú dierku a hodnotí obštrukciu obidvoch nosových
+      priechodov)</p>
+  </div>
+  <div class="radio-group">
+    {{answer5}}
+  </div>
+</div>
+
+<div class="row_content" id="6">
+  <div class="question-group">
+    <p>6. Chronická obštrukcia nosa (dieťa má upchaný nos, resp. diagnóza chronickej nádchy trvajúcej dlhšie ako 6
+      mesiacov)</p>
+  </div>
+  <div class="radio-group">
+    {{answer6}}
+  </div>
+</div>
+
+<div class="section">
+  <h2>OROPHARYNX</h2>
+</div>
+
+<div class="row_content" id="7">
+  <div class="question-group">
+    <p>1. Klinické hodnotenie tonzilárnej hypertrofie:</p>
+  </div>
+  <div class="radio-group">
+    {{answer7}}
+  </div>
+</div>
+
+<div class="row_content" id="8">
+  <div class="question-group">
+    <p>2. Klinické hodnotenie pozície podnebia podľa Friedmana:</p>
+  </div>
+  <div class="radio-group">
+    {{answer8}}
+  </div>
+</div>
+
+<div class="section">
+  <h2>DENTOFACIÁLNE ANOMÁLIE</h2>
+</div>
+
+<div class="row_content" id="9">
+  <div class="question-group">
+    <p>1. Anomálie polohy čeľustí oproti lebkovej spodine:</p>
+  </div>
+  <div class="radio-group">
+    {{answer9}}
+  </div>
+</div>
+
+<div class="row_content" id="10">
+  <div class="question-group">
+    <p>2. Anomálie vzájomnej polohy zubných oblúkov:</p>
+  </div>
+  <div class="radio-group">
+    {{answer10}}
+  </div>
+</div>
+
+<div class="row_content" id="11">
+  <div class="question-group">
+    <p>3. Protrúzia:</p>
+  </div>
+  <div class="radio-group">
+    {{answer11}}
+  </div>
+</div>
+
+<div class="row_content" id="12">
+  <div class="question-group">
+    <p>4. Úzke podnebie:</p>
+  </div>
+  <div class="radio-group">
+    {{answer12}}
+  </div>
+</div>
+
+<div class="section">
+  <h2>Fenotyp</h2>
+</div>
+
+<div class="row_content" id="13">
+  <div class="radio-group">
+    {{answer13}}
+  </div>
+</div>
+
+<div class="section">
+  <h2>BROUILLETTE</h2>
+</div>
+
+<div class="row_content" id="14">
+  <div class="question-group">
+    <p>1. Apnoické pauzy:</p>
+  </div>
+  <div class="radio-group">
+    {{answer14}}
+  </div>
+</div>
+
+<div class="row_content" id="15">
+  <div class="question-group">
+    <p>2. Chrápanie:</p>
+  </div>
+  <div class="radio-group">
+    {{answer15}}
+  </div>
+</div>
+
+<div class="row_content" id="16">
+  <div class="question-group">
+    <p>3. Časté prebúdzanie počas spánku:</p>
+  </div>
+  <div class="radio-group">
+    {{answer16}}
+  </div>
+</div>
+
+<script>
+  for (var rowNumber = 1; rowNumber <= 16; rowNumber++) {
+    if (rowNumber % 2 === 0) {
+      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
+    } else {
+      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
+    }
+  }
+</script>

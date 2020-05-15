@@ -1,0 +1,96 @@
+<div class="qustionaire_info">
+  <h3>{{patientName}} {{patientSurname}}</h3>
+  <h4>Dátum vyplnenia dotazníka: {{creationDate}}</h4>
+</div>
+
+<form action="/zoznam_pacientov">
+  <div class="row_content" id="0">
+    <div class="question-group">
+      <p>Dotazník vypĺňal:</p>
+    </div>
+    <div class="radio-group">
+      {{creator}}
+    </div>
+  </div>
+
+  <div class="row_content" id="1">
+    <div class="question-group">
+      <p>1. Pri čítaní si v sede</p>
+    </div>
+    <div class="radio-group">
+      {{answer1}}
+    </div>
+  </div>
+
+  <div class="row_content" id="2">
+    <div class="question-group">
+      <p>2. Pri sledování televízie</p>
+    </div>
+    <div class="radio-group">
+      {{answer2}}
+    </div>
+  </div>
+
+  <div class="row_content" id="3">
+    <div class="question-group">
+      <p>3. Pri nečinnom sedení na verejnom mieste (v kine, v triede)</p>
+    </div>
+    <div class="radio-group">
+      {{answer3}}
+    </div>
+  </div>
+
+  <div class="row_content" id="4">
+    <div class="question-group">
+      <p>4. Pri hodinovej jazde v aute (bez prestávky) ako spolujazdca</p>
+    </div>
+    <div class="radio-group">
+      {{answer4}}
+    </div>
+  </div>
+
+  <div class="row_content" id="5">
+    <div class="question-group">
+      <p>5. Pri ležaní – odpočinku po obede, keď to okolnosti dovoľujú</p>
+    </div>
+    <div class="radio-group">
+      {{answer5}}
+    </div>
+  </div>
+
+  <div class="row_content" id="6">
+    <div class="question-group">
+      <p>6. Pri rozhovore v sede</p>
+    </div>
+    <div class="radio-group">
+      {{answer6}}
+    </div>
+  </div>
+
+  <div class="row_content" id="7">
+    <div class="question-group">
+      <p>7. V sede, v pokoji, po obede</p>
+    </div>
+    <div class="radio-group">
+      {{answer7}}
+    </div>
+  </div>
+
+  <div class="row_content" id="8">
+    <div class="question-group">
+      <p>8. Pri robení si domácích úloh alebo pri teste v škole</p>
+    </div>
+    <div class="radio-group">
+      {{answer8}}
+    </div>
+  </div>
+
+<script>
+  for (var rowNumber = 1; rowNumber <= 8; rowNumber++) {
+    if (rowNumber % 2 === 0) {
+      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
+    } else {
+      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
+    }
+  }
+</script>

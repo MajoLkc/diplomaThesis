@@ -301,6 +301,7 @@ input[type=radio]:checked+label {
 .question-group {
   position: absolute;
   float: left;
+  width: 60%;
 }
 
 .form_buttons {

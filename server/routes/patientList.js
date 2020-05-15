@@ -1,7 +1,7 @@
 import { db } from '../db.js';
 
 const PATIENT_LIST_VIEW = 'patientList';
-const info = [];
+let info = [];
 let index;
 
 // export function patientList(req, res) {
@@ -22,6 +22,7 @@ let index;
 export function patientList(req, res) {
   if (req.user) {
     db.collection('patients').find().toArray((err, result) => {
+      info = [];
       for (index = 0; index < result.length; index++) {
         if (result[index].name === undefined);
         else {
