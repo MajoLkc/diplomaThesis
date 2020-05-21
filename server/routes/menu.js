@@ -1,7 +1,6 @@
 const MENU_VIEW = 'menu';
 const FORM_SELECTION_VIEW = 'formSelection';
 
-
 export function menu(req, res) {
   if (req.user) {
     const context = {

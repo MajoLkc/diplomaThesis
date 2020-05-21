@@ -88,7 +88,7 @@
       </div>
     </form>
     <div>
-      <button class="action_button_2">Generuj Excel</button>
+      <button class="action_button_2" id="excelBtn">Generuj Excel</button>
     </div>
   </div>
 </div>
@@ -160,4 +160,17 @@
       window.location = '/vyber_dotaznika?pacient=' + getPatientId(this);
     })
   })
+
+  $("#excelBtn").click(function () {
+    $.ajax({
+      type: 'POST',
+      url: '/zoznam_pacientov',
+      success: function (data, status) {
+        window.location = '/zoznam_pacientov';
+      },
+      error: function (error) {
+        console.log(error);
+      }
+    });
+  });
 </script>
