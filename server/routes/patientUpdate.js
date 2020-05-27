@@ -29,6 +29,7 @@ export function handlePatientUpdate(req, res) {
     const updatedPatient = {
       name: req.body.name,
       surname: req.body.surname,
+      gender: req.body.gender,
       birthDate: req.body.birthDate,
       height: req.body.height,
       weight: req.body.weight,

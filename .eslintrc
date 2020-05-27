@@ -22,7 +22,8 @@
     "no-shadow": 0,
     "space-before-function-paren": 0,
     "new-cap": [0, { "properties": true }],
-    "spaced-comment": [0, "always", { "block": { "exceptions": ["-"] } }]
+    "spaced-comment": [0, "always", { "block": { "exceptions": ["-"] } }],
+    "semi": "off"
   },
   "plugins": ["react"]
 }

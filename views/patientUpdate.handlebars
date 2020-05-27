@@ -17,6 +17,14 @@
     </div>
 
     <div class="form-control">
+      <label>Pohlavie:</label>
+      <select id="gender" name="gender">
+        <option value="chlapec">chlapec</option>
+        <option value="dievča">dievča</option>
+      </select>
+    </div>
+
+    <div class="form-control">
       <label>Dátum narodenia:</label>
       <input type="date" id="birthDate" value="{{patientBirthDate}}" pattern="\d{2}/\m{2}/\y{4}">
       <p>Nezadali ste dátum narodenia pacienta.</p>
@@ -71,6 +79,7 @@
       var el = $(this); // this ukazuje na input
       formValues[el.attr('id')] = el.val();
     });
+    formValues.gender = $("#gender option:selected").text();
     console.log(formValues);
     $.ajax({
       type: 'POST',

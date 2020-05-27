@@ -8,6 +8,8 @@ const LOGIN_VIEW = 'login';
 const { HTTP_INVALID_COOKIE, HTTP_NOT_AUTHORIZED } = HTTP_CODES;
 
 function validateCookie(cookie, req) {
+  if (!cookie) return false;
+
   try {
     const decryptedCookie = JSON.parse(decryptString(cookie));
     // console.log(decryptedCookie);
@@ -24,32 +26,15 @@ function validateCookie(cookie, req) {
 
 function middleware(req, res, next) {
   const cookie = req.cookies.auth;
-
-  // console.error(req);
-  // console.log(cookie);
   if (!cookie) {
-    const context = {
-      pageTitle: 'Prihlásenie',
-      noLogout: true,
-      wrongLogin: 'none'
-    };
-    res.render(LOGIN_VIEW, context);
-    // res.status(HTTP_INVALID_COOKIE);
-    // res.json({
-    //   status: HTTP_INVALID_COOKIE,
-    //   message: 'Invalid Cookie',
-    // });
+    res.redirect(302, '/login');
     return;
   }
 
   try {
     // Authorize the user to see if s/he can access our resources
     if (!validateCookie(cookie, req)) {
-      res.status(HTTP_NOT_AUTHORIZED);
-      res.json({
-        status: HTTP_NOT_AUTHORIZED,
-        message: 'Not Authorized',
-      });
+      res.redirect(302, '/login');
       return;
     }
 

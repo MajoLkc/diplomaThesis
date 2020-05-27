@@ -9,7 +9,6 @@ export function login(req, res) {
     wrongLogin: 'none'
   };
   res.render(LOGIN_VIEW, context);
-  console.log(res.statusCode);
 }
 
 export function handleLogin(req, res) {
@@ -24,9 +23,7 @@ export function handleLogin(req, res) {
 }
 
 export function handleLogout(req, res) {
-  req.logOut();
-  req.cookie.destroy(function () {
-    res.redirect('/login');
-  });
-  res.cookie.set('auth', { expires: Date.now() });
+  res.cookie('auth', '', { maxAge: 0 });
+  console.log(res.cookie('auth'));
+  res.redirect(302, '/login');
 }

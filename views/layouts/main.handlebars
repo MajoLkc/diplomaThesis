@@ -2,59 +2,66 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{pageTitle}}</title>
-	<link rel="stylesheet" href="/static/css/pagesStyles.css">
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<style>
-		#page-container {
-			position: relative;
-			min-height: 100vh;
-		}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{pageTitle}}</title>
+  <link rel="stylesheet" href="/static/css/pagesStyles.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <style>
+    #page-container {
+      position: relative;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
 
-		#content-wrap {
-			padding-bottom: 80px;
-			/* Footer height */
-		}
-
-		footer {
-			position: absolute;
+    #footer {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: 50px;
+      background-color: black;
+      /*position: absolute;
 			bottom: 0;
 			width: 100%;
 			height: 80px;
-			background-color: #3686BE;
-		}
+			background-color: #3686BE;*/
+    }
 
-		h1 {
-			color: #3686BE;
-			margin-left: 25px;
-		}
-	</style>
+    h1 {
+      color: #3686BE;
+      margin-left: 25px;
+    }
+  </style>
 </head>
 
 <body>
-	<div id="page-container">
-		<div id="content-wrap">
-			<header>
-				<div id="title_position">
-					<a href="/menu" id="title_text">Detské spánkové laboratórium</a>
-				</div>
-				<div id="logout_btn_position">
-					<button class="action_button_2" id="logout_btn" {{#if noLogout}} style="display: none;" {{/if}}>Odhlásiť</button>
-				</div>
-			</header>
-			<h1>{{pageTitle}}</h1>
-			{{{body}}}
-		</div>
-		<footer id="footer"></footer>
-	</div>
+  <div id="page-container">
+    <div id="content-wrap">
+      <header>
+        <div id="title_position">
+          <a href="/menu" id="title_text">Detské spánkové laboratórium</a>
+        </div>
+        <div id="logout_btn_position">
+          <button class="action_button_2" id="logout_btn" {{#if noLogout}} style="display: none;"
+            {{/if}}>Odhlásiť</button>
+        </div>
+      </header>
+      <h1>{{pageTitle}}</h1>
+      {{{body}}}
+     
+    </div>
+
+  </div>
+  
 </body>
+<footer id="footer"></footer>
 
 </html>
 
 <script>
-	$('#logout_btn').click(function () {
-		alert('funguje');
-	})
+  $('#logout_btn').click(function () {
+    window.location.href = "logout"
+  })
 </script>

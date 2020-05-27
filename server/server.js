@@ -30,6 +30,8 @@ logger.token('date', () => moment().format('DD/MMM/YYYY:HH:mm:ss ZZ'));
 
 //app.use(logger('common'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cookieParser());
 //Defining middleware to serve static files
 app.use('/static', express.static(path.join(__dirname, '../public'))); // kde ma hladat public zlozku

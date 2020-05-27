@@ -1,7 +1,6 @@
 import { db } from '../db.js';
 
 const ESS_RESULTS_VIEW = 'ESSresults';
-let result;
 
 function splitStr(str) {
   // Function to split string
@@ -27,11 +26,11 @@ export function ESSresults(req, res) {
         answer6: doc.ESS_answer_6,
         answer7: doc.ESS_answer_7,
         answer8: doc.ESS_answer_8,
+        // eslint-disable-next-line max-len
+        result: Number(doc.ESS_answer_1) + Number(doc.ESS_answer_2) + Number(doc.ESS_answer_3) + Number(doc.ESS_answer_4) + Number(doc.ESS_answer_5) + Number(doc.ESS_answer_6) + Number(doc.ESS_answer_7) + Number(doc.ESS_answer_8),
         pageTitle: 'Epworthská škála spavosti',
         noLogout: false
       };
-      result = context.answer1 + context.answer2 + context.answer3 + context.answer4 + context.answer5 + context.answer6 + context.answer7 + context.answer8;
-      context.result = result;
       res.render(ESS_RESULTS_VIEW, context);
     });
   }
