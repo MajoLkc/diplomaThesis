@@ -4,7 +4,6 @@ import { HTTP_CODES } from '../config/config.js';
 
 import { decryptString } from '../utils/crypto.js';
 
-const LOGIN_VIEW = 'login';
 const { HTTP_INVALID_COOKIE, HTTP_NOT_AUTHORIZED } = HTTP_CODES;
 
 function validateCookie(cookie, req) {

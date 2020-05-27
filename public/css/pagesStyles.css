@@ -17,6 +17,89 @@ body {
 }
 
 /*****************************************************************************/
+/* PATIENT LIST STYLES */
+
+.borders {
+  background-color: rgb(0, 67, 116);
+  text-align: left;
+  color: white;
+  height: 30px;
+  border: 0;
+}
+
+#patient_list_container th {
+  width: 150px;
+}
+
+#list button {
+  background-color: white;
+  border: 1px solid rgb(0, 67, 116);
+  border-radius: 2px;
+  color: rgb(0, 67, 116);
+  width: 150px;
+  height: 19px;
+  font-weight: bold;
+}
+
+#list td {
+  padding-left: 10px;
+  height: 44px;
+}
+
+#list th {
+  padding-left: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+#list {
+  border-collapse: collapse;
+  border: 2px solid rgb(0, 67, 116);
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+#list tr {
+  border-bottom: 1px solid rgb(0, 67, 116);
+}
+
+.filter {
+  border: 2px solid rgb(0, 67, 116);
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.filter_title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(0, 67, 116);
+  font-weight: bold;
+}
+
+.filter_header {
+  color: rgb(0, 67, 116);
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.filter_header label {
+  font-size: large;
+}
+
+#filterBtn {
+  background-color: #3686BE;
+  color: white;
+}
+
+#excelBtn {
+  background-color: #3686BE;
+  color: white;
+}
+
+/*****************************************************************************/
 /* HEADER STYLES */
 
 #logout_btn {
@@ -58,7 +141,6 @@ header {
 
 #background{
   position: relative;
-  /*min-height: 100vh;*/
 }
 
 #login_header {
@@ -69,8 +151,6 @@ header {
 
 .login_container {
   width: 300px;
-  /*position: relative;
-  /*margin-top: 100px;*/
   margin-left: auto;
   margin-right: auto;
 }
@@ -125,52 +205,6 @@ label {
   margin-top: 10px;
 }
 
-/* PRIKLADY NA BUTTON
-button {
-  border: 1px solid #0066cc;
-  background-color: #0099cc;
-  color: #ffffff;
-  padding: 5px 10px;
-}
-
-button:disabled { AKO DAT DISABLED KURZOR
-  cursor: not-allowed; 
-  pointer-events: all !important;
-}
-
-button:hover {
-  border: 1px solid #0099cc;
-  background-color: #00aacc;
-  color: #ffffff;
-  padding: 5px 10px;
-}
-
-button:disabled,
-button[disabled]{
-  border: 1px solid #999999;
-  background-color: #cccccc;
-  color: #666666;
-}
-*/
-
-/* FOOTER CODE
-#page-container {
-  position: relative;
-  min-height: 100vh;
-}
-
-#content-wrap {
-  padding-bottom: 2.5rem;    ...Footer height 
-}
-
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;           ...Footer height 
-}
-*/
-
 /*****************************************************************************/
 /* NEW PATIENT PAGE STYLES */
 
@@ -194,7 +228,6 @@ button[disabled]{
 .form-control input {
   background-color: #E1EBF2;
   border-radius: 5px;
-  /* display: block; */
 }
 
 .form-control select {
@@ -275,8 +308,9 @@ button[disabled]{
 /******************************************************************************/
 /* QUESTIONAIRE PAGES */
 
-.qustionaire_info h3 {
-  color: rgb(0, 67, 116);
+.qustionaire_info {
+  margin-left: 15px;
+  padding-left: 15px;
 }
 
 .qustionaire_info b {
@@ -325,10 +359,21 @@ input[type=radio]:checked+label {
   float: right;
 }
 
+.radio-group p {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 0px;
+}
+
 .question-group {
   position: absolute;
   float: left;
   width: 60%;
+}
+
+.question-group p {
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .form_buttons {

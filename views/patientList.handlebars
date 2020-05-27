@@ -1,65 +1,12 @@
-<style>
-  .borders {
-    background-color: rgb(0, 67, 116);
-    text-align: left;
-    color: white;
-    height: 30px;
-    border: 0;
-  }
-
-  #patient_list_container th {
-    width: 150px;
-  }
-
-  #list button {
-    background-color: white;
-    border: 1px solid rgb(0, 67, 116);
-    border-radius: 2px;
-    color: rgb(0, 67, 116);
-    width: 150px;
-    height: 19px;
-    font-weight: bold;
-  }
-
-  #list td {
-    padding-left: 10px;
-    height: 44px;
-  }
-
-  #list th {
-    padding-left: 10px;
-  }
-
-  .hidden {
-    display: none;
-  }
-
-  #list {
-    border-collapse: collapse;
-    border: 2px solid rgb(0, 67, 116);
-    border-radius: 5px;
-  }
-
-  #list tr {
-    border-bottom: 1px solid rgb(0, 67, 116);
-  }
-
-  .filter {
-    border: 2px solid rgb(0, 67, 116);
-    border-radius: 5px;
-    margin-right: 15px;
-  }
-</style>
-
 <div id="filter_container">
   <div id="filter_position">
     <form class="filter">
-      <div>
+      <div class="filter_header">
         <label>FILTER</label>
       </div>
       <div>
-        <div>
-          <label class="filter_title">Priezvisko pacienta</label>
+        <div class="filter_title">
+          <label>Priezvisko pacienta</label>
         </div>
         <div>
           <input type="text" id="surname" value="{{surname}}">
@@ -72,8 +19,8 @@
 
     <form class="filter" method="GET">
 
-      <div>
-        <label class="filter_title">Počet pacientov</label>
+      <div class="filter_title">
+        <label>Počet pacientov</label>
       </div>
 
       <div>
@@ -182,7 +129,7 @@
       success: function (data, status) {
         console.log(data)
       },
-      error: function(error) {
+      error: function (error) {
         alert('Pri vytvarani excelu vznikla chyba');
       }
     })
