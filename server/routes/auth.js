@@ -5,8 +5,7 @@ const LOGIN_VIEW = 'login';
 export function login(req, res) {
   const context = {
     pageTitle: 'Prihlásenie',
-    noLogout: true,
-    wrongLogin: 'none'
+    noLogout: true
   };
   res.render(LOGIN_VIEW, context);
 }

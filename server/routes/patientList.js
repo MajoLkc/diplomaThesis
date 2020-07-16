@@ -58,6 +58,8 @@ export function patientList(req, res) {
       };
       res.render(PATIENT_LIST_VIEW, context);
     });
+    const number = db.collection('patients').count();
+    console.log(number);
   }
 }
 

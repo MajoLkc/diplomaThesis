@@ -169,7 +169,7 @@ label {
 }
 
 .input_field {
-  width: 100%;
+  width: 300px;
   height: 35px;;
   background-color: #E1EBF2;
   font-size: 16px;
@@ -188,6 +188,10 @@ label {
   height: 40px;
   margin-top: 30px;
   border-radius: 5px;
+}
+
+.loginBtb_container .action_button {
+  width: 308px;  
 }
 
 .action_button:hover {

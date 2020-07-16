@@ -23,11 +23,11 @@
         </div>
 
         <div class="loginBtb_container">
-          <button class="action_button" type="submit">Prihlásiť</button>
+          <button class="action_button" type="submit" disabled>Prihlásiť</button>
         </div>
 
-        <div class="errorText" style="display: {{wrongLogin}};">
-          Zadali ste nesprávne meno alebo heslo.
+        <div class="errorText" style="display: none;">
+          <b>Zadali ste nesprávne meno alebo heslo.</b>
         </div>
       </div>
 
@@ -38,12 +38,27 @@
 </body>
 
 <script>
-  $(document).ready(function(){
-    $('.action_button').click(function(e){
+  
+  $('input').change(function () {
+    $('.action_button').prop('disabled', false);
+  });
+
+  $(document).ready(function () {
+    $('.action_button').click(function (e) {
       e.preventDefault();
+      //ziskanie status code
+      $.ajaxSetup({
+        type: "GET",
+        dataType: "jsonp",
+        error: function (xhr) {
+          if (xhr.status === 401)
+            $('.errorText').css('display', 'block');
+        }
+      });
+      //tu to konci
       var data = {};
-      $('.input_field').each(function(){
-        var fieldName = $(this).attr('name'); 
+      $('.input_field').each(function () {
+        var fieldName = $(this).attr('name');
         var value = $(this).val();
         data[fieldName] = value;
       });
@@ -53,8 +68,8 @@
         data: JSON.stringify(data),
         contentType: 'application/json',
         dataType: 'json',
-        success: function(data, status) {
-          console.log(data);
+        success: function (data, status) {
+          /*console.log(data);*/
           window.location = '/menu';
         }
       })
