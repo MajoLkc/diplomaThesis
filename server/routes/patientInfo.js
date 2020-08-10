@@ -19,12 +19,21 @@ function date(dateObject) {
 function calculateAge(birthday) {
   const splitToday = date(Date.now()).split('.');
   const splitBirthday = date(birthday).split('.');
-  const age = splitToday[2] - splitBirthday[2];
-  if (Number(splitToday[1]) < Number(splitBirthday[1])) {
-    return age - 1;
-  } else if (Number(splitToday[0]) < Number(splitBirthday[0])) {
-    return age - 1;
-  }
+  const birthdayYear = Number(splitBirthday[2]);
+  const birthdayMonth = Number(splitBirthday[1]);
+  const birthdayDay = Number(splitBirthday[0]);
+  const todayYear = Number(splitToday[2]);
+  const todayMonth = Number(splitToday[1]);
+  const todayDay = Number(splitToday[0]);
+  let age = todayYear - birthdayYear;
+
+  if (todayMonth < birthdayMonth) { 
+    return age - 1; 
+  } else if (todayMonth = birthdayMonth) { 
+      if (todayDay < birthdayDay) { 
+        return age - 1; 
+      } 
+  } 
   return age;
 }
 
