@@ -29,7 +29,7 @@ function calculateAge(birthday) {
 
   if (todayMonth < birthdayMonth) { 
     return age - 1; 
-  } else if (todayMonth = birthdayMonth) { 
+  } else if (todayMonth == birthdayMonth) { 
       if (todayDay < birthdayDay) { 
         return age - 1; 
       } 
