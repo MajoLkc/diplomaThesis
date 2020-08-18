@@ -51,8 +51,10 @@
         type: "GET",
         dataType: "jsonp",
         error: function (xhr) {
-          if (xhr.status === 401)
+          if (xhr.status === 401) {
             $('.errorText').css('display', 'block');
+            $('.action_button').prop('disabled', true);
+          }
         }
       });
       //tu to konci
