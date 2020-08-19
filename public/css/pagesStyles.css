@@ -5,6 +5,17 @@ body {
   min-height: 100%;
 }
 
+#page-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+h1 {
+  color: #3686BE;
+  margin-left: 25px;
+}
+
 .cont {
   text-align: center;
   height: 400px;
