@@ -1,3 +1,20 @@
+<style>
+  td div {
+    height: 35px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  td div img {
+    height: 35px;
+    display: inline-block;
+  }
+
+  td img:hover {
+    cursor: pointer;
+  }
+</style>
+
 <div id="filter_container">
   <div id="filter_position">
     <form class="filter">
@@ -52,10 +69,20 @@
       <td id="patientDate-{{@index}}">{{this.birthDate}}</td>
       <td id="patientID-{{@index}}" class="hidden">{{this.ID}}</td>
       <td>
-        <button class="showInfo">Zobraziť informácie</button>
-        <button class="showQuestionaires">Zobraziť dotazníky</button>
-        <button class="updateInfo">Upraviť informácie</button>
-        <button class="updateQuestionaires">Upraviť dotazníky</button>
+        <div>
+          <img class="showInfo" onmouseover="this.src='/static/images/user_hover.png'"
+            onmouseout="this.src='/static/images/user.png'" src="/static/images/user.png" alt="Show patients"
+            title="Zobraziť pacienta" />
+          <img class="updateInfo" onmouseover="this.src='/static/images/editUser_hover.png'"
+            onmouseout="this.src='/static/images/editUser.png'" src="/static/images/editUser.png" alt="Edit patients"
+            title="Upraviť pacienta">
+          <img class="showQuestionaires" onmouseover="this.src='/static/images/list_hover.png'"
+            onmouseout="this.src='/static/images/list.png'" src="/static/images/list.png" alt="Show questionaires"
+            title="Zobraziť dotazníky">
+          <img class="updateQuestionaires" onmouseover="this.src='/static/images/editList_hover.png'"
+            onmouseout="this.src='/static/images/editList.png'" src="/static/images/editList.png"
+            alt="Edit questionaires" title="Upraviť dotazníky">
+        </div>
       </td>
     </tr>
     {{/each}}

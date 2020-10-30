@@ -63,7 +63,8 @@ h1 {
 
 #list td {
   padding-left: 10px;
-  height: 44px;
+  height: 40px;
+  width: 300px;
 }
 
 #list th {

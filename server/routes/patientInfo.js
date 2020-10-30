@@ -25,15 +25,15 @@ function calculateAge(birthday) {
   const todayYear = Number(splitToday[2]);
   const todayMonth = Number(splitToday[1]);
   const todayDay = Number(splitToday[0]);
-  let age = todayYear - birthdayYear;
+  const age = todayYear - birthdayYear;
 
-  if (todayMonth < birthdayMonth) { 
-    return age - 1; 
-  } else if (todayMonth == birthdayMonth) { 
-      if (todayDay < birthdayDay) { 
-        return age - 1; 
-      } 
-  } 
+  if (todayMonth < birthdayMonth) {
+    return age - 1;
+  } else if (todayMonth === birthdayMonth) {
+    if (todayDay < birthdayDay) {
+      return age - 1;
+    }
+  }
   return age;
 }
 
