@@ -12,13 +12,13 @@ function date(dateObject) {
   const day = d.getDate();
   const month = d.getMonth() + 1;
   const year = d.getFullYear();
-  const date = day + '.' + month + '.' + year;
+  const date = `${day}.${month}.${year}`;
   return date;
 }
 
 function calculateAge(birthday) {
   const splitToday = date(Date.now()).split('.');
-  const splitBirthday = date(birthday).split('.');
+  const splitBirthday = birthday.split('.');
   const birthdayYear = Number(splitBirthday[2]);
   const birthdayMonth = Number(splitBirthday[1]);
   const birthdayDay = Number(splitBirthday[0]);

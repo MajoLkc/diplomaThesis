@@ -101,7 +101,7 @@
   }
 
   var getPatientId = function getPatientId(element) {
-    var rowID = element.parentNode.parentNode.id;
+    var rowID = element.parentNode.parentNode.parentNode.id;
     var patientId = document.getElementById('patientID-' + rowID).textContent;
     return patientId;
   };

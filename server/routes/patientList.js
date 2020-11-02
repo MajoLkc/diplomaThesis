@@ -46,7 +46,7 @@ export function patientList(req, res) {
         info.push({
           name: result[index].name,
           surname: result[index].surname,
-          birthDate: date(result[index].birthDate),
+          birthDate: result[index].birthDate,
           ID: result[index].id
         });
       }
@@ -62,7 +62,6 @@ export function patientList(req, res) {
     console.log(number);
   }
 }
-
 
 export function generateExcel(req, res) {
   const data = req.body;
