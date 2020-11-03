@@ -113,7 +113,10 @@
     });
     formValues.gender = $("#gender option:selected").text();
     formValues.informations.push($.date(new Date()));
-
+    formValues.MqForm = [];
+    formValues.CsqForm = [];
+    formValues.EssForm = [];
+    formValues.OsasForm = [];
     // pridat funkciu na overenie, ci sa pacient nachadza v DB
     // window.location = '/isPatientPresent';
 
