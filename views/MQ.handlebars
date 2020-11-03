@@ -152,7 +152,7 @@
     } else {
       MqForm.splice(2, 0, $('input:text').val());
     }
-    MqForm.push($.date(new Date()))
+    MqForm.push($.date(new Date()));
     console.log(MqForm);
     $.ajax({
       type: 'POST',

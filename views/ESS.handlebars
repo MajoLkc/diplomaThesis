@@ -204,17 +204,17 @@
       document.getElementById('bad').style.display = 'inline';
       return
     };
-    let formValues = {};
+    let EssForm = [];
     $('input:checked').each(function () {
       var el = $(this);
-      formValues[el.attr('name')] = el.val();
+      EssForm.push(el.val());
     });
-    formValues.ESS_creationDate = $.date(new Date());
-    console.log(formValues);
+    EssForm.push($.date(new Date()));
+    console.log(EssForm);
     $.ajax({
       type: 'POST',
       url: '/vyber_dotaznika/epworthska_skala_spavosti?pacient=' + getUrlParameter('pacient'),
-      data: JSON.stringify(formValues),
+      data: JSON.stringify(EssForm),
       contentType: 'application/json',
       dataType: 'json',
       success: function (data, status) {
