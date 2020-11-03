@@ -124,11 +124,12 @@
       contentType: 'application/json',
       dataType: 'json',
       success: function (data, status) {
-        //window.location = '/vyber_dotaznika?pacient=' + data.id;
-        window.location = '/registracia_pacienta';
-        if (data['success']) {
-          alert("Pacient už bol registrovaný v systéme dňa ");
-        }
+        window.location = '/vyber_dotaznika?pacient=' + data.id;
+        //window.location = '/registracia_pacienta';
+        //if (data['success']) {
+          //alert("Pacient už bol registrovaný v systéme dňa ");
+          //window.location = '/vyber_dotaznika?pacient=' + data.id;
+        //}
       },
       error: function (error) {
         console.log(error);
