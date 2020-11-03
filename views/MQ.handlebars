@@ -142,34 +142,22 @@
       document.getElementById('bad').style.display = 'inline';
       return
     };
-    //let formValues = {};
     let MqForm = [];
-    //$('input').each(function () {
-      //var el = $(this);
-      //MqForm.push(el.val());
-      //formValues[el.attr('name')] = el.val();
-    //});
     $('input:checked').each(function () {
       var el = $(this);
       MqForm.push(el.val());
-      //formValues[el.attr('name')] = el.val();
     });
     if ($('input:text').val() == '') {
       MqForm.splice(2, 0, 'žiadny');
     } else {
       MqForm.splice(2, 0, $('input:text').val());
     }
-    //$('input:text').filter(function() { return this.value == ""; });
-    //formValues.MQ_creationDate = $.date(new Date());
     MqForm.push($.date(new Date()))
     console.log(MqForm);
-    const formValues = {
-      MqForm: MqForm
-    }
     $.ajax({
       type: 'POST',
       url: '/vyber_dotaznika/ranny_dotaznik?pacient=' + getUrlParameter('pacient'),
-      data: JSON.stringify(formValues),
+      data: JSON.stringify(MqForm),
       contentType: 'application/json',
       dataType: 'json',
       success: function (data, status) {
