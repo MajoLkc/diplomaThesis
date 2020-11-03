@@ -56,7 +56,7 @@ export function patientInfo(req, res) {
         patientName: doc.name,
         patientSurname: doc.surname,
         patientGender: doc.gender,
-        patientBirthDate: date(doc.birthDate),
+        patientBirthDate: doc.birthDate,
         patientAge: calculateAge(doc.birthDate),
         patientHeight: doc.height,
         patientWeight: doc.weight,
