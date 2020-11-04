@@ -1027,27 +1027,30 @@
       document.getElementById('bad').style.display = 'inline';
       return
     }
-    let formValues = {};
-    $('input').each(function () {
-      var el = $(this); // this ukazuje na input
-      //console.log(el.prop('checked')); //vracia true/false
-      //console.log($( "input:checked" ).val());
-      //if (el.prop('checked')) formValues[el.attr('name')] = $( "input:checked" ).val();
-      formValues[el.attr('name')] = el.val();
-    });
-    //$('input').prop('checked').each(function () {
-    //formValues[$('input').attr('name')] = $("input:checked").val();
-    //});
+    let CsqForm = [];
     $('input:checked').each(function () {
       var el = $(this);
-      formValues[el.attr('name')] = el.val();
+      CsqForm.push(el.val());
     });
-    formValues.CSQ_creationDate = $.date(new Date());
-    console.log(formValues);
+
+    number1 = $('#q-3').val();
+    number2 = $('#q-3').val();
+    //Davame o 2 cisla mensie, lebo dole sa pridaju text inputy na spravne hodnoty
+    CsqForm.splice(1, 0, number1);
+    CsqForm.splice(2, 0, number2);
+
+    $('input:text').each(function () {
+      var id = $(this).attr('id').split('-');
+      var el = $(this); // this ukazuje na input
+      CsqForm.splice(id[1], 0, el.val());
+    });
+
+    CsqForm.push($.date(new Date()));
+    console.log(CsqForm);
     $.ajax({
       type: 'POST',
       url: '/vyber_dotaznika/detsky_spankovy_dotaznik?pacient=' + getUrlParameter('pacient'),
-      data: JSON.stringify(formValues),
+      data: JSON.stringify(CsqForm),
       contentType: 'application/json',
       dataType: 'json',
       success: function (data, status) {

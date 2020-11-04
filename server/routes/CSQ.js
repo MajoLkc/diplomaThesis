@@ -13,11 +13,11 @@ export function childrenSleepingQuestionnaire(req, res) {
 }
 
 export function handleCHSQ(req, res) {
-  const updatedPatient = req.body;
+  const formValues = req.body;
   const url = req.originalUrl;
   const param = url.split('=');
   const data = { id: param[1] };
-  db.collection('patients').findOneAndUpdate(data, { $set: updatedPatient }, (err) => {
+  db.collection('patients').findOneAndUpdate(data, { $push: { CsqForm: formValues } }, (err) => {
     if (err) {
       console.log(err);
       res.sendStatus(500);
