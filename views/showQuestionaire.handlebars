@@ -1,5 +1,64 @@
 <style>
-  
+  /* Applys to all links under class TopMenuBar on hover */
+  .dropdown-menu {
+    background-color: #3686BE;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    display: block;
+  }
+
+  .dropdown-menu:hover {
+    cursor: pointer;
+  }
+
+  .sub-dropdown-menu {
+    display: none;
+    background-color: #3686BE;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 1;
+  }
+
+  /* Applys to all links under class TopMenuBar */
+  .dropdown-menu span {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+    text-align: center;
+  }
+
+  .sub-dropdown-menu span {
+    padding: 8px 12px;
+  }
+
+  .sub-dropdown-menu span:hover {
+    font-weight: 1000;
+  }
+
+  .sub-dropdown:hover .sub-dropdown-menu {
+    display: table;
+  }
+
+  .sub-dropdown {
+    position: relative;
+  }
+
+  .sub-dropdown-menu {
+    width: 300px;
+    left: 100%;
+    top: 0;
+  }
+
+  .loginBtb_container {
+    margin: 25px 0px;
+  }
+
+  #unclicable {
+    background-color: #E1EBF2;
+  }
+
+  .dropdown-menu #unclicable:hover {
+    cursor: not-allowed;
+  }
 </style>
 
 <div class="back_to_list">
@@ -8,18 +67,68 @@
 
 <div class="login_container">
   <div class="loginBtn_container">
-    <button class="action_button" id="showCSQ" {{csqDisabled}}>Detsky spankovy dotaznik</button>
-
+    <div class="dropdown-menu">
+      <ul>
+        <li class="sub-dropdown" id="{{csqDisabled}}"><span>Detský spánkový dotazník</span>
+          <div class="sub-dropdown-menu">
+            <ul>
+              {{#each numOfCsq}}
+              <li><span>Dotaznik {{this}}</span></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="showOSAS" {{osasDisabled}}>Syndróm OSA</button>
+    <div class="dropdown-menu">
+      <ul>
+        <li class="sub-dropdown" id="{{osasDisabled}}"><span>Syndróm OSA</span>
+          <div class="sub-dropdown-menu">
+            <ul>
+              {{#each numOfOsas}}
+              <li><span>Dotaznik {{this}}</span></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="showESS" {{essDisabled}}>Epworthská škála spavosti</button>
+    <div class="dropdown-menu">
+      <ul>
+        <li class="sub-dropdown" id="{{essDisabled}}"><span>Epworthská škála spavosti</span>
+          <div class="sub-dropdown-menu">
+            <ul>
+              {{#each numOfEss}}
+              <li><span>Dotaznik {{this}}</span></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="loginBtb_container">
-    <button class="action_button" id="showMQ" {{mqDisabled}}>Ranný dotazník</button>
+    <div class="dropdown-menu">
+      <ul>
+        <li class="sub-dropdown" id="{{mqDisabled}}"><span>Ranný dotazník</span>
+          <div class="sub-dropdown-menu">
+            <ul>
+              {{#each numOfMq}}
+              <li><span>Dotaznik {{this}}</span></li>
+              {{/each}}
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
+  {{!-- <div class="loginBtb_container">
+    {{!-- <button class="action_button" id="showMQ" {{mqDisabled}}>Ranný dotazník</button>
+  </div> --}}
 </div>
 
 <script>
