@@ -2,16 +2,18 @@ import { db } from '../db.js';
 
 const CSQ_RESULTS_VIEW = 'CSQresults';
 
-function splitStr(str) {
-  // Function to split string
-  return str.split('=');
+function splitStrAndGetValue(str) {
+  return str.split('=')[1];
 }
 
 export function CSQresults(req, res) {
   if (req.user) {
     const url = req.originalUrl;
-    const id = splitStr(url);
-    const data = { id: id[1] };
+    const patientUrl = url.split('&')[0];
+    const formUrl = url.split('&')[1];
+    const patientId = splitStrAndGetValue(patientUrl);
+    const formId = splitStrAndGetValue(formUrl);
+    const data = { id: patientId };
     let answer3result;
     let answer4result;
     let answer20result;
@@ -25,100 +27,100 @@ export function CSQresults(req, res) {
     let result;
 
     db.collection('patients').findOne(data, (err, doc) => {
-      if (Number(doc.CSQ_answer_3) > 60) answer3result = 5;
-      else if (Number(doc.CSQ_answer_3) <= 60 && Number(doc.CSQ_answer_3) > 45) answer3result = 4;
-      else if (Number(doc.CSQ_answer_3) <= 45 && Number(doc.CSQ_answer_3) > 30) answer3result = 3;
-      else if (Number(doc.CSQ_answer_3) <= 30 && Number(doc.CSQ_answer_3) > 15) answer3result = 2;
+      if (Number(doc.CsqForm[formId][3]) > 60) answer3result = 5;
+      else if (Number(doc.CsqForm[formId][3]) <= 60 && Number(doc.CsqForm[formId][3]) > 45) answer3result = 4;
+      else if (Number(doc.CsqForm[formId][3]) <= 45 && Number(doc.CsqForm[formId][3]) > 30) answer3result = 3;
+      else if (Number(doc.CsqForm[formId][3]) <= 30 && Number(doc.CsqForm[formId][3]) > 15) answer3result = 2;
       else answer3result = 1;
 
-      if (Number(doc.CSQ_answer_4) > 60) answer4result = 5;
-      else if (Number(doc.CSQ_answer_4) <= 60 && Number(doc.CSQ_answer_4) > 45) answer4result = 4;
-      else if (Number(doc.CSQ_answer_4) <= 45 && Number(doc.CSQ_answer_4) > 30) answer4result = 3;
-      else if (Number(doc.CSQ_answer_4) <= 30 && Number(doc.CSQ_answer_4) > 15) answer4result = 2;
+      if (Number(doc.CsqForm[formId][4]) > 60) answer4result = 5;
+      else if (Number(doc.CsqForm[formId][4]) <= 60 && Number(doc.CsqForm[formId][4]) > 45) answer4result = 4;
+      else if (Number(doc.CsqForm[formId][4]) <= 45 && Number(doc.CsqForm[formId][4]) > 30) answer4result = 3;
+      else if (Number(doc.CsqForm[formId][4]) <= 30 && Number(doc.CsqForm[formId][4]) > 15) answer4result = 2;
       else answer4result = 1;
 
-      if (Number(doc.CSQ_answer_20) < 5) answer20result = 5;
-      else if (Number(doc.CSQ_answer_20) >= 5 && Number(doc.CSQ_answer_20) < 6.5) answer20result = 4;
-      else if (Number(doc.CSQ_answer_20) >= 6.5 && Number(doc.CSQ_answer_20) < 8) answer20result = 3;
-      else if (Number(doc.CSQ_answer_20) >= 8 && Number(doc.CSQ_answer_20) < 9) answer20result = 2;
+      if (Number(doc.CsqForm[formId][20]) < 5) answer20result = 5;
+      else if (Number(doc.CsqForm[formId][20]) >= 5 && Number(doc.CsqForm[formId][20]) < 6.5) answer20result = 4;
+      else if (Number(doc.CsqForm[formId][20]) >= 6.5 && Number(doc.CsqForm[formId][20]) < 8) answer20result = 3;
+      else if (Number(doc.CsqForm[formId][20]) >= 8 && Number(doc.CsqForm[formId][20]) < 9) answer20result = 2;
       else answer20result = 1;
 
-      if (Number(doc.CSQ_answer_21) < 5) answer21result = 5;
-      else if (Number(doc.CSQ_answer_21) >= 5 && Number(doc.CSQ_answer_21) < 6.5) answer21result = 4;
-      else if (Number(doc.CSQ_answer_21) >= 6.5 && Number(doc.CSQ_answer_21) < 8) answer21result = 3;
-      else if (Number(doc.CSQ_answer_21) >= 8 && Number(doc.CSQ_answer_21) < 9) answer21result = 2;
+      if (Number(doc.CsqForm[formId][21]) < 5) answer21result = 5;
+      else if (Number(doc.CsqForm[formId][21]) >= 5 && Number(doc.CsqForm[formId][21]) < 6.5) answer21result = 4;
+      else if (Number(doc.CsqForm[formId][21]) >= 6.5 && Number(doc.CsqForm[formId][21]) < 8) answer21result = 3;
+      else if (Number(doc.CsqForm[formId][21]) >= 8 && Number(doc.CsqForm[formId][21]) < 9) answer21result = 2;
       else answer21result = 1;
 
-      result1 = ((answer3result + answer4result) / 2) + ((answer20result + answer21result) / 2) + Number(doc.CSQ_answer_6) + Number(doc.CSQ_answer_7) + (Number(doc.CSQ_answer_16) + Number(doc.CSQ_answer_17))/2 + Number(doc.CSQ_answer_40) + Number(doc.CSQ_answer_41);
-      result2 = Number(doc.CSQ_answer_32) + Number(doc.CSQ_answer_33) + Number(doc.CSQ_answer_34);
-      result3 = Number(doc.CSQ_answer_29) + Number(doc.CSQ_answer_37) + Number(doc.CSQ_answer_38);
-      result4 = Number(doc.CSQ_answer_12) + Number(doc.CSQ_answer_13) + Number(doc.CSQ_answer_14) + Number(doc.CSQ_answer_27) + Number(doc.CSQ_answer_28) + Number(doc.CSQ_answer_31);
-      result5 = Number(doc.CSQ_answer_49) + Number(doc.CSQ_answer_52) + Number(doc.CSQ_answer_53) + Number(doc.CSQ_answer_54) + Number(doc.CSQ_answer_55);
-      result6 = Number(doc.CSQ_answer_15) + Number(doc.CSQ_answer_35);
+      result1 = ((answer3result + answer4result) / 2) + ((answer20result + answer21result) / 2) + Number(doc.CsqForm[formId][6]) + Number(doc.CsqForm[formId][7]) + (Number(doc.CsqForm[formId][16]) + (Number(doc.CsqForm[formId][17])) / 2) + Number(doc.CsqForm[formId][40]) + Number(doc.CsqForm[formId][41]);
+      result2 = Number(doc.CsqForm[formId][32]) + Number(doc.CsqForm[formId][33]) + Number(doc.CsqForm[formId][34]);
+      result3 = Number(doc.CsqForm[formId][29]) + Number(doc.CsqForm[formId][37]) + Number(doc.CsqForm[formId][38]);
+      result4 = Number(doc.CsqForm[formId][12]) + Number(doc.CsqForm[formId][13]) + Number(doc.CsqForm[formId][14]) + Number(doc.CsqForm[formId][27]) + Number(doc.CsqForm[formId][28]) + Number(doc.CsqForm[formId][31]);
+      result5 = Number(doc.CsqForm[formId][49]) + Number(doc.CsqForm[formId][52]) + Number(doc.CsqForm[formId][53]) + Number(doc.CsqForm[formId][54]) + Number(doc.CsqForm[formId][55]);
+      result6 = Number(doc.CsqForm[formId][15]) + Number(doc.CsqForm[formId][35]);
       result = result1 + result2 + result3 + result4 + result5 + result6;
 
       const context = {
         patientName: doc.name,
         patientSurname: doc.surname,
-        creationDate: doc.CSQ_creationDate,
-        creator: doc.CSQ_creator,
-        answer1: doc.CSQ_answer_1,
-        answer2: doc.CSQ_answer_2,
-        answer3: doc.CSQ_answer_3,
-        answer4: doc.CSQ_answer_4,
-        answer5: doc.CSQ_answer_5,
-        answer6: doc.CSQ_answer_6,
-        answer7: doc.CSQ_answer_7,
-        answer8: doc.CSQ_answer_8,
-        answer9: doc.CSQ_answer_9,
-        answer10: doc.CSQ_answer_10,
-        answer11: doc.CSQ_answer_11,
-        answer12: doc.CSQ_answer_12,
-        answer13: doc.CSQ_answer_13,
-        answer14: doc.CSQ_answer_14,
-        answer15: doc.CSQ_answer_15,
-        answer16: doc.CSQ_answer_16,
-        answer17: doc.CSQ_answer_17,
-        answer18: doc.CSQ_answer_18,
-        answer19: doc.CSQ_answer_19,
-        answer20: doc.CSQ_answer_20,
-        answer21: doc.CSQ_answer_21,
-        answer22: doc.CSQ_answer_22,
-        answer23: doc.CSQ_answer_23,
-        answer24: doc.CSQ_answer_24,
-        answer25: doc.CSQ_answer_25,
-        answer26: doc.CSQ_answer_26,
-        answer27: doc.CSQ_answer_27,
-        answer28: doc.CSQ_answer_28,
-        answer29: doc.CSQ_answer_29,
-        answer30: doc.CSQ_answer_30,
-        answer31: doc.CSQ_answer_31,
-        answer32: doc.CSQ_answer_32,
-        answer33: doc.CSQ_answer_33,
-        answer34: doc.CSQ_answer_34,
-        answer35: doc.CSQ_answer_35,
-        answer36: doc.CSQ_answer_36,
-        answer37: doc.CSQ_answer_37,
-        answer38: doc.CSQ_answer_38,
-        answer39: doc.CSQ_answer_39,
-        answer40: doc.CSQ_answer_40,
-        answer41: doc.CSQ_answer_41,
-        answer42: doc.CSQ_answer_42,
-        answer43: doc.CSQ_answer_43,
-        answer44: doc.CSQ_answer_44,
-        answer45: doc.CSQ_answer_45,
-        answer46: doc.CSQ_answer_46,
-        answer47: doc.CSQ_answer_47,
-        answer48: doc.CSQ_answer_48,
-        answer49: doc.CSQ_answer_49,
-        answer50: doc.CSQ_answer_50,
-        answer51: doc.CSQ_answer_51,
-        answer52: doc.CSQ_answer_52,
-        answer53: doc.CSQ_answer_53,
-        answer54: doc.CSQ_answer_54,
-        answer55: doc.CSQ_answer_55,
-        answer56: doc.CSQ_answer_56,
-        answer57: doc.CSQ_answer_57,
+        creationDate: doc.CsqForm[formId][58],
+        creator: doc.CsqForm[formId][0],
+        answer1: doc.CsqForm[formId][1],
+        answer2: doc.CsqForm[formId][2],
+        answer3: doc.CsqForm[formId][3],
+        answer4: doc.CsqForm[formId][4],
+        answer5: doc.CsqForm[formId][5],
+        answer6: doc.CsqForm[formId][6],
+        answer7: doc.CsqForm[formId][7],
+        answer8: doc.CsqForm[formId][8],
+        answer9: doc.CsqForm[formId][9],
+        answer10: doc.CsqForm[formId][10],
+        answer11: doc.CsqForm[formId][11],
+        answer12: doc.CsqForm[formId][12],
+        answer13: doc.CsqForm[formId][13],
+        answer14: doc.CsqForm[formId][14],
+        answer15: doc.CsqForm[formId][15],
+        answer16: doc.CsqForm[formId][16],
+        answer17: doc.CsqForm[formId][17],
+        answer18: doc.CsqForm[formId][18],
+        answer19: doc.CsqForm[formId][19],
+        answer20: doc.CsqForm[formId][20],
+        answer21: doc.CsqForm[formId][21],
+        answer22: doc.CsqForm[formId][22],
+        answer23: doc.CsqForm[formId][23],
+        answer24: doc.CsqForm[formId][24],
+        answer25: doc.CsqForm[formId][25],
+        answer26: doc.CsqForm[formId][26],
+        answer27: doc.CsqForm[formId][27],
+        answer28: doc.CsqForm[formId][28],
+        answer29: doc.CsqForm[formId][29],
+        answer30: doc.CsqForm[formId][30],
+        answer31: doc.CsqForm[formId][31],
+        answer32: doc.CsqForm[formId][32],
+        answer33: doc.CsqForm[formId][33],
+        answer34: doc.CsqForm[formId][34],
+        answer35: doc.CsqForm[formId][35],
+        answer36: doc.CsqForm[formId][36],
+        answer37: doc.CsqForm[formId][37],
+        answer38: doc.CsqForm[formId][38],
+        answer39: doc.CsqForm[formId][39],
+        answer40: doc.CsqForm[formId][40],
+        answer41: doc.CsqForm[formId][41],
+        answer42: doc.CsqForm[formId][42],
+        answer43: doc.CsqForm[formId][43],
+        answer44: doc.CsqForm[formId][44],
+        answer45: doc.CsqForm[formId][45],
+        answer46: doc.CsqForm[formId][46],
+        answer47: doc.CsqForm[formId][47],
+        answer48: doc.CsqForm[formId][48],
+        answer49: doc.CsqForm[formId][49],
+        answer50: doc.CsqForm[formId][50],
+        answer51: doc.CsqForm[formId][51],
+        answer52: doc.CsqForm[formId][52],
+        answer53: doc.CsqForm[formId][53],
+        answer54: doc.CsqForm[formId][54],
+        answer55: doc.CsqForm[formId][55],
+        answer56: doc.CsqForm[formId][56],
+        answer57: doc.CsqForm[formId][57],
         patientResult1: result1,
         patientResult2: result2,
         patientResult3: result3,
