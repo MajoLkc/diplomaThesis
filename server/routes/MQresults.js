@@ -2,28 +2,32 @@ import { db } from '../db.js';
 
 const MQ_RESULTS_VIEW = 'MQresults';
 
-function splitStr(str) {
+function splitStrAndGetValue(str) {
   // Function to split string
-  return str.split('=');
+  return str.split('=')[1];
 }
 
 export function MQresults(req, res) {
   if (req.user) {
     const url = req.originalUrl;
-    const id = splitStr(url);
-    const data = { id: id[1] };
+    const patientUrl = url.split('&')[0];
+    const formUrl = url.split('&')[1];
+    const patientId = splitStrAndGetValue(patientUrl);
+    const formId = splitStrAndGetValue(formUrl);
+    const data = { id: patientId };
     db.collection('patients').findOne(data, (err, doc) => {
+      if (err) throw err;
       const context = {
         patientName: doc.name,
         patientSurname: doc.surname,
-        creationDate: doc.MQ_creationDate,
-        creator: doc.MQ_creator,
-        answer1: doc.MQ_answer_1,
-        answer2: doc.MQ_answer_2,
-        answer3: doc.MQ_answer_3,
-        answer4: doc.MQ_answer_4,
-        answer5: doc.MQ_answer_5,
-        answer6: doc.MQ_answer_6,
+        creationDate: doc.MqForm[formId][7],
+        creator: doc.MqForm[formId][0],
+        answer1: doc.MqForm[formId][1],
+        answer2: doc.MqForm[formId][2],
+        answer3: doc.MqForm[formId][3],
+        answer4: doc.MqForm[formId][4],
+        answer5: doc.MqForm[formId][5],
+        answer6: doc.MqForm[formId][6],
         pageTitle: 'Ranný dotazník',
         noLogout: false
       };
