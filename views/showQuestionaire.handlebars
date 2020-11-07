@@ -56,7 +56,7 @@
     background-color: #E1EBF2;
   }
 
-  .dropdown-menu #unclicable:hover {
+  #unclicable:hover {
     cursor: not-allowed;
   }
 </style>
@@ -73,7 +73,7 @@
           <div class="sub-dropdown-menu">
             <ul>
               {{#each numOfCsq}}
-              <li><span>Dotaznik {{this}}</span></li>
+              <li><span id="CsqForm-{{@index}}">Dotaznik {{this}}</span></li>
               {{/each}}
             </ul>
           </div>
@@ -88,7 +88,7 @@
           <div class="sub-dropdown-menu">
             <ul>
               {{#each numOfOsas}}
-              <li><span>Dotaznik {{this}}</span></li>
+              <li><span id="OsasForm-{{@index}}">Dotaznik {{this}}</span></li>
               {{/each}}
             </ul>
           </div>
@@ -103,7 +103,7 @@
           <div class="sub-dropdown-menu">
             <ul>
               {{#each numOfEss}}
-              <li><span>Dotaznik {{this}}</span></li>
+              <li><span id="EssForm-{{@index}}">Dotaznik {{this}}</span></li>
               {{/each}}
             </ul>
           </div>
@@ -118,7 +118,7 @@
           <div class="sub-dropdown-menu">
             <ul>
               {{#each numOfMq}}
-              <li><span>Dotaznik {{this}}</span></li>
+              <li><span id="MqForm-{{@index}}">Dotaznik {{this}}</span></li>
               {{/each}}
             </ul>
           </div>
@@ -147,19 +147,24 @@
     }
   };
 
-  $("#showCSQ").click(function () {
-    location.href = "/zoznam_dotaznikov_pacienta/detsky_spankovy_dotaznik?pacient=" + getUrlParameter('pacient');
+  function getFormId(formId) {
+    var id = formId.split("-");
+    return id;
+  };
+
+  $('[id*="CsqForm"]').click(function () {
+    location.href = "/zoznam_dotaznikov_pacienta/detsky_spankovy_dotaznik?pacient=" + getUrlParameter('pacient') + "&formId=" + getFormId(this.id)[1];
   });
 
-  $("#showOSAS").click(function () {
-    location.href = "/zoznam_dotaznikov_pacienta/syndrom_OSA?pacient=" + getUrlParameter('pacient');
+  $('[id*="OsasForm"]').click(function () {
+    location.href = "/zoznam_dotaznikov_pacienta/syndrom_OSA?pacient=" + getUrlParameter('pacient') + "&formId=" + getFormId(this.id)[1];
   })
 
-  $("#showESS").click(function () {
-    location.href = "/zoznam_dotaznikov_pacienta/epworthska_skala_spavosti?pacient=" + getUrlParameter('pacient');
+  $('[id*="EssForm"]').click(function () {
+    location.href = "/zoznam_dotaznikov_pacienta/epworthska_skala_spavosti?pacient=" + getUrlParameter('pacient') + "&formId=" + getFormId(this.id)[1];
   })
 
-  $("#showMQ").click(function () {
-    location.href = "/zoznam_dotaznikov_pacienta/ranny_dotaznik?pacient=" + getUrlParameter('pacient');
+  $('[id*="MqForm"]').click(function () {
+    location.href = "/zoznam_dotaznikov_pacienta/ranny_dotaznik?pacient=" + getUrlParameter('pacient') + "&formId=" + getFormId(this.id)[1];
   })
 </script>
