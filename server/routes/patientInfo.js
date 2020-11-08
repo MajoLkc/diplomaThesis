@@ -2,11 +2,6 @@ import { db } from '../db.js';
 
 const PATIENT_INFO_VIEW = 'patientInfo';
 
-function splitStr(str) {
-  // Function to split string
-  return str.split('=');
-}
-
 function date(dateObject) {
   const d = new Date(dateObject);
   const day = d.getDate();
@@ -46,10 +41,22 @@ function calculateBMI(weight, height) {
 export function patientInfo(req, res) {
   if (req.user) {
     const url = req.originalUrl;
-    const id = splitStr(url);
+    const id = url.split('=');
     const data = { id: id[1] };
+    let i;
+    const informations = [];
     db.collection('patients').findOne(data, (err, doc) => {
       if (err) throw err;
+      for (i = 0; i < doc.informations.length; i++) {
+        informations.push({
+          date: doc.informations[i][3],
+          height: doc.informations[i][0],
+          weight: doc.informations[i][1],
+          bmi: calculateBMI(doc.informations[i][1], doc.informations[i][0]),
+          neckCircuit: doc.informations[i][2],
+          numberOfVisit: i + 1
+        });
+      }
       const context = {
         pageTitle: 'Informácie o pacientovi',
         noLogout: false,
@@ -58,11 +65,9 @@ export function patientInfo(req, res) {
         patientGender: doc.gender,
         patientBirthDate: doc.birthDate,
         patientAge: calculateAge(doc.birthDate),
-        patientHeight: doc.height,
-        patientWeight: doc.weight,
-        patientBMI: calculateBMI(doc.weight, doc.height),
-        patientNeckCircuit: doc.neckCircuit
+        infos: informations
       };
+      // https://handlebarsjs.com/guide/expressions.html#literal-segments
       res.render(PATIENT_INFO_VIEW, context);
     });
   }

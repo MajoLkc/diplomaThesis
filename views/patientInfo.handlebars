@@ -1,54 +1,40 @@
-<div class="back_to_list">
-  <a href="/zoznam_pacientov">Späť na zoznam pacientov</a>
-</div>
+<style>
+  .container {
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-<div id="registration_container">
-  <div class="form-control">
-    <label>Meno:</label>
-    <label>{{patientName}}</label>
+  tr:nth-child(even) {
+    background: #ACCEE5
+  }
+</style>
+
+<div class="container">
+  <div id="patien-head">
+    <p>{{patientName}} {{patientSurname}}</p>
+    <p>Narodený: {{patientBirthDate}} ({{patientAge}} rokov)</p>
   </div>
-
-  <div class="form-control">
-    <label>Priezvisko:</label>
-    <label>{{patientSurname}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Pohlavie:</label>
-    <label>{{patientGender}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Dátum narodenia:</label>
-    <label>{{patientBirthDate}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Vek:</label>
-    <label>{{patientAge}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Výška:</label>
-    <label>{{patientHeight}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Váha:</label>
-    <label>{{patientWeight}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>BMI:</label>
-    <label>{{patientBMI}}</label>
-  </div>
-
-  <div class="form-control">
-    <label>Obvod krku:</label>
-    <label>{{patientNeckCircuit}}</label>
+  <div id="patient-body">
+    <table id="list">
+      <tr class="borders">
+        <th>Vyšetrenie</th>
+        <th>Dátum</th>
+        <th>Výška (cm)</th>
+        <th>Váha (kg)</th>
+        <th>BMI</th>
+        <th>Obvod krku (cm)</th>
+      </tr>
+      {{#each infos}}
+      <tr>
+        <td>Vyšetrenie č. {{this.numberOfVisit}}</td>
+        <td>{{this.date}}</td>
+        <td>{{this.height}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.bmi}}</td>
+        <td>{{this.neckCircuit}}</td>
+      </tr>
+      {{/each}}
+    </table>
   </div>
 </div>
-
-<script>
-
-</script>
