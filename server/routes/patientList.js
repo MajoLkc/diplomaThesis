@@ -319,7 +319,7 @@ export function generateExcel(req, res) {
       osas.cell(1, 19).string('15. ODPOVEĎ').style(bgStyle);
       osas.cell(1, 20).string('16. ODPOVEĎ').style(bgStyle);
 
-      workbook.write('Excel.xlsx');
+      workbook.write('./public/Excel.xlsx');
       res.json({})
     })
 }

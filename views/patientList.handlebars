@@ -45,7 +45,7 @@
       </div>
 
       <div>
-        <button class="action_button_2" id="excelBtn">Generuj Excel</button>
+        <button class="action_button_2" id="excelBtn">Generuj excel</button>
       </div>
 
     </form>
@@ -141,8 +141,14 @@
     window.location = url;
   });
 
+  function nestahuj() {
+    window.location.href = '/static/Excel.xlsx';
+  }
+
   $("#excelBtn").click(function (e) {
     e.preventDefault();
+
+    //setTimeout(function(){ alert("Hello"); }, 3000);
 
     var formValues = {
       numberOfPacients: $('#numberOfPatients').val(),
@@ -163,5 +169,10 @@
         alert('Pri vytvarani excelu vznikla chyba');
       }
     })
+    //setInterval(function(){ alert("Hello"); }, 3000);
+    //window.location.href = '/static/Excel.xlsx';
+    //function(){ alert("Hello"); }.delay(5000);
+    setTimeout(nestahuj(), 5000);
+    //nestahuj();
   });
 </script>

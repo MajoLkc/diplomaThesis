@@ -67,7 +67,6 @@ export function patientInfo(req, res) {
         patientAge: calculateAge(doc.birthDate),
         infos: informations
       };
-      // https://handlebarsjs.com/guide/expressions.html#literal-segments
       res.render(PATIENT_INFO_VIEW, context);
     });
   }
