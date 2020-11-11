@@ -26,8 +26,8 @@ h1 {
 }
 
 .footer-container {
-  background-color: rgb(60, 60, 60);
-  min-height: 100px;
+  background-color: #3686BE;
+  min-height: 80px;
   position: relative;
   width: 100%;
 }
