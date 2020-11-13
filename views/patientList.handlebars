@@ -13,6 +13,10 @@
   td img:hover {
     cursor: pointer;
   }
+
+  tr:nth-child(even) {
+    background: #ACCEE5
+  }
 </style>
 
 <div id="filter_container">
@@ -93,15 +97,6 @@
 </div>
 
 <script>
-  var numberOfRows = $('table tr').length;
-
-  for (var rowNumber = 1; rowNumber < numberOfRows - 1; rowNumber++) {
-    if (rowNumber % 2 == 0) {
-      document.getElementById(rowNumber).style.backgroundColor = '#FFFFFF';
-    } else {
-      document.getElementById(rowNumber).style.backgroundColor = '#ACCEE5';
-    }
-  }
 
   var getPatientId = function getPatientId(element) {
     var rowID = element.parentNode.parentNode.parentNode.id;
@@ -141,14 +136,12 @@
     window.location = url;
   });
 
-  function nestahuj() {
+  function performDownloadOfExcel() {
     window.location.href = '/static/Excel.xlsx';
   }
 
   $("#excelBtn").click(function (e) {
     e.preventDefault();
-
-    //setTimeout(function(){ alert("Hello"); }, 3000);
 
     var formValues = {
       numberOfPacients: $('#numberOfPatients').val(),
@@ -169,10 +162,21 @@
         alert('Pri vytvarani excelu vznikla chyba');
       }
     })
-    //setInterval(function(){ alert("Hello"); }, 3000);
-    //window.location.href = '/static/Excel.xlsx';
-    //function(){ alert("Hello"); }.delay(5000);
-    setTimeout(nestahuj(), 5000);
-    //nestahuj();
+    var d = new Date();
+    let startSeconds = d.getSeconds();
+    console.log('Current second is ' + startSeconds);
+    finishSecond = startSeconds + 5;
+    console.log('Finish second should be ' + finishSecond);
+    while (1) {
+      d = new Date();
+      startSeconds = d.getSeconds();
+      if (finishSecond > 59) {
+        startSeconds = startSeconds + 60;
+      }
+      if (startSeconds > finishSecond) {
+        performDownloadOfExcel();
+        return;
+      }
+    }    
   });
 </script>
